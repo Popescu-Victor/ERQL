@@ -4,3 +4,12 @@ class Operation:
         self.verb = verb
         self.obj = obj
         self.args = args
+
+
+class Homework(Operation):
+    def convert():
+        pass
+    def graph():
+        pass
+    def report():
+        pass
