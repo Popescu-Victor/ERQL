@@ -1,8 +1,7 @@
-import erql
-
+import util
+from operations_class import Operation
 
 def interpret(user_input):
-    virtual = {'analyse' : erql.virtual_analyse()}
-    clean = user_input.split(" > ")
-    if clean[0] == 'cv':
-        virtual[int(clean[1])]()
+    input_list = user_input.split('>')
+    product = Operation(*input_list)
+    return product
