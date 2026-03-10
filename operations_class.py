@@ -6,10 +6,20 @@ class Operation:
         self.args = args
 
 
-class Homework(Operation):
-    def convert():
-        pass
-    def graph():
-        pass
-    def report():
-        pass
+class hw(Operation):
+    def convert(self):
+        print("Convert")
+    def graph(self):
+        print("Graph")
+    def report(self):
+        print("Report")
+        
+    commands = {"convert":convert, "graph":graph, "report":report}
+    
+    def execute(self):
+        self.commands[self.verb](self)
+    
+    
+input_user = hw('hw', 'convert', 'attack')
+
+input_user.execute()
