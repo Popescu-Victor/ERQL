@@ -1,7 +1,16 @@
-import util
-from operations_class import Operation
+input_user = input("Enter ERQL: \n")
 
-def interpret(user_input):
-    input_list = user_input.split('>')
-    product = Operation(*input_list)
-    return product
+
+class Render:
+    def __init__(self, render):
+        
+        rendered = render.split(">")
+        self.subject = rendered[0]
+        self.verb = rendered[1]
+        self.obj = rendered[2]
+        self.mod = rendered[3:]
+        
+
+decode = Render(input_user)
+
+print(decode.verb)
