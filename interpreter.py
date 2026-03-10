@@ -13,4 +13,15 @@ class Render:
 
 decode = Render(input_user)
 
-print(decode.verb)
+if decode.subj == "hw":
+    pass
+
+if decode.subj == "cv":
+    pass
+
+if decode.subj == "personal":
+    pass
+
+if decode.subj == "groups":
+    pass
+
