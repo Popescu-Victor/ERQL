@@ -24,3 +24,8 @@ def virtual_analyse():
 def return_val():
     virtual_analyse()
 
+def scatter_plot(df, hor, ver):
+    plt.scatter(df[hor], df[ver], marker='x', alpha=0.6)
+    plt.xlabel(hor)
+    plt.ylabel(ver)
+    plt.show()
