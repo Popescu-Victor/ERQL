@@ -37,13 +37,12 @@ def enter():
         
         if rendered.verb == "upload":
             uploaded_file = erql.upload()
-            print(uploaded_file.file.head())
-            manip_command = input('What do you want me to do with this? \n')
-            if manip_command == 'plot':
-                erql.scatter_plot("BMI", "Age_Dif")
+            file_info = f"Column Names: \n *************** \n {uploaded_file.file.columns.tolist()}"
+            text_box.insert(tk.END, file_info)
 
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
 
