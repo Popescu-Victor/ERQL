@@ -33,12 +33,12 @@ def scatter_plot(df, hor, ver):
 class File_Var:   
     def __init__(self, file):
         from tkinter import filedialog
-        self.file = file
+        self.file = pd.read_csv(file)
 
 def upload():
     from tkinter import filedialog
     file_open = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
-    file = pd.read_csv(file_open)
-    file_object = File_Var(file)
+    file_object = File_Var(file_open)
     return file_object
+
 
