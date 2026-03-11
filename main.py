@@ -1,19 +1,30 @@
-import erql
+import tkinter as tk
 import pandas as pd
-from interpreter import Render
+from tkinter import scrolledtext
 import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from collections import defaultdict
 
 
+root = tk.Tk()
+root.title("'Non Comissioned' Organizational Tools")
+root.geometry("800x600")
+root.columnconfigure(0, weight=8)
+root.columnconfigure(1, weight=1)
+root.rowconfigure(0, weight=1)
+root.rowconfigure(1, weight=0)
 
-input_user = input("Now what? \n")
-rendered = Render(input_user)
+text_box = scrolledtext.ScrolledText(root,width=30,height=20,highlightthickness=2, highlightbackground="gray",wrap=tk.WORD)
+text_box.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
+canvas1 = tk.Frame(root,bg = "lightgray")
+canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 
+text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
+text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
-if rendered.subj == "standard":
-    if rendered.verb == "plot":
-        erql.scatter_plot(rendered.mod[0], rendered.mod[1])
-        
-    if rendered.verb == "upload":
-        uploaded_file = erql.upload()
-        print(uploaded_file.file.head())
+btn = tk.Button(root, text="ENTER")
+btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
+
+root.mainloop()
