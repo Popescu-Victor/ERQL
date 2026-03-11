@@ -24,7 +24,26 @@ canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
+def enter():
+    user_input = entry.get()
+    rendered = interpreter.Render(user_input)
+    if rendered.subj == "standard":
+        if rendered.verb == "plot":
+            fig = erql.scatter_plot(rendered.mod[0], rendered.mod[1])
+            print('returned fig')
+            canvas_widget = FigureCanvasTkAgg(fig, master=canvas1)
+            canvas_widget.draw()
+            canvas_widget.get_tk_widget().pack(fill="both", expand=True)
+        
+        if rendered.verb == "upload":
+            uploaded_file = erql.upload()
+            print(uploaded_file.file.head())
+            manip_command = input('What do you want me to do with this? \n')
+            if manip_command == 'plot':
+                erql.scatter_plot("BMI", "Age_Dif")
+
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
