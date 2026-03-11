@@ -39,10 +39,20 @@ def enter():
             uploaded_file = erql.upload()
             file_info = f"Column Names: \n *************** \n {uploaded_file.file.columns.tolist()}"
             text_box.insert(tk.END, file_info)
+                if rendered.subj == "file":
+                    
+        if rendered.verb == "plot":
+            for widget in canvas1.winfo_children():
+                widget.destroy()
+            fig = erql.scatter_file(rendered.mod[0], rendered.mod[1])
+            canvas_widget = FigureCanvasTkAgg(fig, master=canvas1)
+            canvas_widget.draw()
+            canvas_widget.get_tk_widget().pack(fill="both", expand=True)
 
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
 
 
