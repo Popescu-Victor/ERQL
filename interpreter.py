@@ -1,6 +1,6 @@
 input_user = input("Enter ERQL: \n")
 
-
+# User inputs are divided into the familiar SVO + modifier template that language teachers are already familiar with so that they understand what it is that they're asking the program to do.
 class Render:
     def __init__(self, render):
         
@@ -24,4 +24,5 @@ if decode.subj == "personal":
 
 if decode.subj == "groups":
     pass
+
 
