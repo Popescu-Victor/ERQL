@@ -30,7 +30,7 @@ def scatter_plot(df, hor, ver):
     plt.ylabel(ver)
     plt.show()
     
-class File_Var:   
+class File_Var:   # Experimenting with class instead of file or function to make it easier to manipulate data in two steps (upload file into program and then perform analysis on it, after being given some basic info such as column names). This is so that you don't need to write a long ERQL statement like 'standard>graph>scatter>student_churn_rate>year'. 
     def __init__(self, file):
         from tkinter import filedialog
         self.file = pd.read_csv(file)
@@ -40,5 +40,6 @@ def upload():
     file_open = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
     file_object = File_Var(file_open)
     return file_object
+
 
 
