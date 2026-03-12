@@ -24,7 +24,7 @@ canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
-def enter():
+def enter(): # Just proof of concept for the time being. Later on I'll replace the many if-statements below with a hashmap.
     user_input = entry.get()
     rendered = interpreter.Render(user_input)
     if rendered.subj == "standard":
@@ -53,6 +53,7 @@ btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
 
 
 
