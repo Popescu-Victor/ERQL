@@ -34,7 +34,10 @@ def enter(): # Just proof of concept for the time being. Later on I'll replace t
             canvas_widget = FigureCanvasTkAgg(fig, master=canvas1)
             canvas_widget.draw()
             canvas_widget.get_tk_widget().pack(fill="both", expand=True)
-        
+            
+        if rendered.verb == "clear":
+            text_box.delete('1.0', tk.END)
+            
         if rendered.verb == "upload":
             uploaded_file = erql.upload()
             file_info = f"Column Names: \n *************** \n {uploaded_file.file.columns.tolist()}"
@@ -65,6 +68,7 @@ btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
 
 
 
