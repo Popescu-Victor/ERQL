@@ -56,11 +56,16 @@ def enter(): # Just proof of concept for the time being. Later on I'll replace t
             for row in cursor.execute("SELECT * FROM users"):
                 text_box.insert(tk.END, row)
 
+def on_enter(*args):
+    enter()
+    
+entry.bind('<Return>', on_enter)
 
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
 
 
 
