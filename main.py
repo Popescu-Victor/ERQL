@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from collections import defaultdict
-
+import sqlite3
 
 root = tk.Tk()
 root.title("'Non Comissioned' Organizational Tools")
@@ -49,10 +49,19 @@ def enter(): # Just proof of concept for the time being. Later on I'll replace t
             canvas_widget.draw()
             canvas_widget.get_tk_widget().pack(fill="both", expand=True)
 
+    if rendered.subj == "groups":
+        if rendered.verb == "display":
+            conn = sqlite3.connect("db.sqlite")
+            cursor = conn.cursor()
+            for row in cursor.execute("SELECT * FROM users"):
+                text_box.insert(tk.END, row)
+
+
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
 
 root.mainloop()
+
 
 
 
