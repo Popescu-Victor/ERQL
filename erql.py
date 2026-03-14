@@ -5,7 +5,7 @@ from tkinter import filedialog
 from tkinter import scrolledtext
 from collections import defaultdict
 
-def virtual_analyse():
+def virtual_analyse(): # This functions if for parsing the data from a Google form that we use.
     from tkinter import filedialog
     file = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
     #This part is for cleaning the data up before I do anything with it.
@@ -21,7 +21,7 @@ def virtual_analyse():
     avg_table["Total"] = avg_table["Total"] * 5
     return avg_table
 
-def return_val():
+def return_val(): #This does the same but for files uploaded into memory.
     virtual_analyse()
 
 def scatter_plot(df, hor, ver):
