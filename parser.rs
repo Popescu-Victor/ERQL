@@ -1,19 +1,22 @@
-fn split_to_lowercase(s: &str) -> Vec<String> {
+use std::io;
+
+fn split_text(s: &str) -> Vec<String> {
     s.split('>')
         .map(|word| word.to_lowercase())
         .collect()
+
 }
 
+
 fn main() {
-let input = "file>upload>return>graph>scatter>prof>stud"; // This is just an example of a user input
-let result: Vec<String> = split_to_lowercase(input);
+    let mut input = String::new();
     
-
-let subject = result.get(0).unwrap();
-let verb = result.get(1).unwrap();
-let modif = result.get(2..).unwrap();
-
-println!("{:?}", subject);
-println!("{:?}", verb);
-println!("{:?}", modif);
+    println!("Enter command");
+    io::stdin().read_line(&mut input).unwrap();
+    let rendered = split_text(&input);
+    let subject: &String = &rendered[0].clone();
+    let verb: &String = &rendered[1].clone();
+    let modifier: &Vec<String> = &rendered[2..].to_vec();
+    drop(rendered);
+    println!("Returned command: {}", modifier.join(" "));
 }
