@@ -1,6 +1,7 @@
 //Not yet integrated into the rest of the project. I'm just experimenting with Rust a bit here to see how much it improves performance on the lower end systems it will ultimately be running.
 
 use std::io;
+use rfd::FileDialog;
 
 fn split_text(s: &str) -> Vec<String> {
     s.split('>')
@@ -21,4 +22,13 @@ fn main() {
     let modifier: &Vec<String> = &rendered[2..].to_vec();
     drop(rendered);
     println!("Returned command: {}", modifier.join(" "));
+
+
+        if subject == "file" && verb == "upload" {
+
+        let df = FileDialog::new()
+        .add_filter("CSV", &["csv"])
+        .pick_file();
+    
+    }
 }
