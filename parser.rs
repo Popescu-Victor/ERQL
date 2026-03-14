@@ -1,8 +1,10 @@
 //Not yet integrated into the rest of the project. I'm just experimenting with Rust a bit here to see how much it improves performance on the lower end systems it will ultimately be running.
-
+use pyo3::prelude::*;
 use std::io;
 use rfd::FileDialog;
 
+
+#[pyfunction]
 fn split_text(s: &str) -> Vec<String> {
     s.split('>')
         .map(|word| word.to_lowercase())
@@ -10,7 +12,7 @@ fn split_text(s: &str) -> Vec<String> {
 
 }
 
-
+#[pymodule]
 fn main() {
     let mut input = String::new();
     
