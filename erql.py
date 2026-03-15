@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import scrolledtext
 from collections import defaultdict
+import os
 
 def virtual_analyse(): # This functions if for parsing the data from a Google form that we use.
     from tkinter import filedialog
@@ -41,5 +42,18 @@ def upload():
     file_object = File_Var(file_open)
     return file_object
 
+
+def show_head():
+    folder = r""
+    files = [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
+
+    for i, filename in enumerate(files, start=1):
+        filepath = os.path.join(folder, filename)
+        if filepath.endswith('.csv'):
+            df = pd.read_csv(filepath)
+            print(df.head())
+        if filepath.endswith('.xlsx'):
+            df = pd.read_excel(filepath)
+            print(df.head())
 
 
