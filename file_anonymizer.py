@@ -1,6 +1,6 @@
 import os
 
-folder = r"C:\Users\roman\Desktop\Colab"
+folder = r"" #folder path
 
 files = [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
 
