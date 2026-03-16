@@ -44,7 +44,9 @@ def upload():
 
 def folder_info():
     from tkinter import filedialog
+    global folder_path
     folder_path = filedialog.askdirectory()
+    return folder_path
 
 def show_head():
     folder = r""
