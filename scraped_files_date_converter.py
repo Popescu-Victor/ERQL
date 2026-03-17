@@ -19,3 +19,22 @@ for d in df.iloc[:, -1]:
 
 for d in dates:
     print(parser.parse('2025-11-05') - parser.parse(d))
+
+def find_column(df, text): # This find the column with the users in each excel file in a folder.
+    for col in df.columns:
+        if df[col].astype(str).str.contains(text, case=False, na=False).any():
+            return df.columns.get_loc(col)
+    return None
+
+
+def user_column_display: # This prints out where to find the user column in each excel table.
+    for i, filename in enumerate(files, start=1):
+        filepath = os.path.join(folder, filename)
+        if '-ro' not in filepath:
+            pass
+        else:
+            df = pd.read_excel(filepath)
+            if find_column(df, "Test Passes for Participant:") != None:
+                print(filename + " has col: " + str(find_column(df, "Test Passes for Participant:")))
+
+
