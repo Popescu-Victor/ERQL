@@ -66,14 +66,16 @@ ERQL is designed for educational environments where simplicity and accessibility
 
     🏫 Support institutions with restricted IT environments
 
-🧪 Example (Planned Syntax)
+🧪 Example (Planned Syntax):
 
-standard>plot>scatter>year>graduation_rate
-homework>upload>file>convert
-file>graph>Study_Hours_Per_Day>Final_CGPA
-virtual_class>plot>teachers>pie_chart
-group>add_student>teacher("Jane Doe")>student("Jacob Smith")
+standard>plot>scatter>year>graduation_rate 
 
-(Syntax subject to change as the language evolves)
+homework>upload>file>convert 
 
-\n <img src="https://github.com/Popescu-Victor/ERQL/blob/main/CaptureERQL.PNG?raw=true" alt="GUI">
+file>graph>Study_Hours_Per_Day>Final_CGPA 
+
+virtual_class>plot>teachers>pie_chart 
+
+group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)
+
+ <img src="https://github.com/Popescu-Victor/ERQL/blob/main/CaptureERQL.PNG?raw=true" alt="GUI">
