@@ -5,7 +5,7 @@ import pandas as pd
 hashmap = {}
 
 
-for x in list_of_clean_reports:
+for x in list_of_clean_reports: # list_of_clean_reports is in "validate_files.py"
     df = pd.read_excel(x)
     for col in df.columns:
             if df[col].astype(str).str.contains("Test Passes for Participant:", case=False, na=False).any():
