@@ -6,6 +6,7 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from collections import defaultdict
 import sqlite3
+import errors_messagebox
 
 root = tk.Tk()
 root.title("'Non Comissioned' Organizational Tools")
