@@ -1,3 +1,5 @@
+# Takes in multiple excel files and counts how many times a student's name appears in the list of ungraded homework assignments.
+
 import os
 import pandas as pd
 
