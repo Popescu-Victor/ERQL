@@ -5,7 +5,11 @@ from tkinter import filedialog
 from tkinter import scrolledtext
 from collections import defaultdict
 import os
-import errors_messagebox
+import errors_messagebox as errors
+import file_anonymizer as anonym
+import entries_per student as entries
+
+
 
 def virtual_analyse(): # This functions if for parsing the data from a Google form that we use.
     from tkinter import filedialog
