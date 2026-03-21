@@ -7,13 +7,12 @@ WARNINGS = {
     "invalid_verb": ("Error: invalid_verb", "Invalid second argument. Use 'help>verbs' for more information."),
     "wrong_file_type": ("Error: wrong_file_type", "Please use files with the .csv extension"),
     "no_file": ("Error: no_file", "Please first upload a file using 'standard>upload' before performin analysis")
-
-
-
+    "invalid_data_type": ("Error: invalid_data_type", "Invalid data found in input. Please make sure the columns you're selecting are correctly formatted.")
+    "title_error": ("Error: title_error", "ERQL can only perform this operation on files scraped from 'roarmy'.")
+                        
 }
 
 def show_warning(key):
     title, message = WARNINGS[key]
     messagebox.showwarning(title, message)
     
-show_warning("args_number")
