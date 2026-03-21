@@ -1,9 +1,8 @@
 import os
 
+
 folder = r""
-
 files = [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
-
 list_of_clean_reports = []
 
 
@@ -17,6 +16,3 @@ for i, filename in enumerate(files, start=1):
             list_of_clean_reports.append(filepath)
         else:
             pass
-
-for x in list_of_clean_reports:
-    print(x)
