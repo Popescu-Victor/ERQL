@@ -8,3 +8,4 @@ polars = { version = "0.46", features = ["lazy"] ,
 rfd = "0.15"
 }
 rfd = "0.17.2"
+pyo3 = { version = "0.23", features = ["extension-module"] }
