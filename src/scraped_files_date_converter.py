@@ -12,7 +12,7 @@ print(test_file)
 
 for d in df.iloc[:, -1]:
     if d == "Yesterday":
-        dates.append("2025-11-04")
+        dates.append("2025-11-04") # IMPORTANT: This only works for files uploaded on this specific date. Make it so that the program takes the date from the file's name! 
     else:
         parsed = parser.parse(d)
         dates.append(parsed.strftime("%Y-%m-%d"))
