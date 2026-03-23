@@ -9,8 +9,8 @@ for i, filename in enumerate(files, start=1):
     if '-ro' not in filepath:
         pass
     else:
-        ext = filepath.split('-ro')[1]
-        new_name = f"dataset_{i}{ext}"
+        date_extention = filepath.split('-ro')[1]
+        new_name = f"dataset_{i}{date_extention}"
         new_path = os.path.join(folder, new_name)
         os.rename(filepath, new_path)
         print(f"{filename} → {new_name}")
