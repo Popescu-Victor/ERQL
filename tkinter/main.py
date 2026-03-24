@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from collections import defaultdict
-import errors_messagebox
+from utils import errors_messagebox, validate_files, entried_per_student
+from src import interpreter, erql
+
 
 root = tk.Tk()
 root.title("'Non Comissioned' Organizational Tools")
