@@ -13,3 +13,13 @@ doc_ref.set({
 })
 
 print("Upload complete")
+
+
+'''
+ULTRA CONCISE VERSION:
+
+database = firestore.Client(project="XYZ")
+collection = db.collection("XYZ")
+
+collection.document("XYZ").set({XYZ})
+'''
