@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import messagebox
-
+from src import interpreter
 
 root = tk.Tk()
 root.title("'Non Comissioned' Organizational Tools")
@@ -21,7 +21,9 @@ text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
 def enter(*args): # Just proof of concept for the time being. Later on I'll replace the many if-statements below with a hashmap.
-    messagebox.showinfo("ENTER", "Interface not yet connected to utils.")
+    user_input = entry.get()
+    parsed_input = interpreter.Parsed_input(user_input)
+    messagebox.showinfo("ENTER", f"You typed: {parsed_input.input_as_list}")
     
 entry.bind('<Return>', enter)
 

@@ -2,7 +2,7 @@ import pandas as pd
 from dateutil import parser
 import os
 
-test_file = r""
+test_file = r"" #Add test file path here
 
 df = pd.read_excel(test_file)
 dates = []
@@ -27,7 +27,7 @@ def find_column(df, text): # This find the column with the users in each excel f
     return None
 
 
-def user_column_display: # This prints out where to find the user column in each excel table.
+def user_column_display(): # This prints out where to find the user column in each excel table.
     for i, filename in enumerate(files, start=1):
         filepath = os.path.join(folder, filename)
         if '-ro' not in filepath:

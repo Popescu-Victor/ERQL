@@ -2,7 +2,8 @@
 class Parsed_input:
     def __init__(self, user_input):
         
-        parsed = user_input.split(">")
-        self.subject = user_input[0]
-        self.verb = user_input[1]
-        self.obj = user_input[2:]
+        command_list = user_input.split(">")
+        self.subject = command_list[0]
+        self.verb = command_list[1]
+        self.obj = command_list[2:]
+        self.input_as_list = [self.subject , self.verb , self.obj]
