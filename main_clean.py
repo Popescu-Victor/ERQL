@@ -20,13 +20,10 @@ canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
-def enter(): # Just proof of concept for the time being. Later on I'll replace the many if-statements below with a hashmap.
+def enter(*args): # Just proof of concept for the time being. Later on I'll replace the many if-statements below with a hashmap.
     messagebox.showinfo("ENTER", "Interface not yet connected to utils.")
-
-def on_enter(*args):
-    enter()
     
-entry.bind('<Return>', on_enter)
+entry.bind('<Return>', enter)
 
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
