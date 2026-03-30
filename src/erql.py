@@ -5,9 +5,9 @@ from tkinter import filedialog
 from tkinter import scrolledtext
 from collections import defaultdict
 import os
-import errors_messagebox as errors
-import file_anonymizer as anonym
-import entries_per student as entries
+import utils.errors_messagebox as errors
+import utils.file_anonymizer as anonym
+import utils.entries_per_student as entries
 
 
 
