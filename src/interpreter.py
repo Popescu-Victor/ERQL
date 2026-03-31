@@ -1,5 +1,4 @@
 # User inputs are divided into the familiar SVO + modifier template that language teachers are already familiar with so that they understand what it is that they're asking the program to do.
-import erql
 
 
 class Parsed_input:
