@@ -12,4 +12,4 @@ def command_handler(Parsed_input):
 
     if Parsed_input.subject == "homework":
 
-    If Parsed_input.subject == "group":
+    if Parsed_input.subject == "group":
