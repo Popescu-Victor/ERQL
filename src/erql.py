@@ -8,6 +8,8 @@ import os
 import utils.errors_messagebox as errors
 import utils.file_anonymizer as anonym
 import utils.entries_per_student as entries
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 

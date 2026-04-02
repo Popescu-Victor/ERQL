@@ -9,7 +9,9 @@ def command_handler(Parsed_input):
                 erql.scatter_plot(erql.df, erql.hor, erql.ver)
                 
     if Parsed_input.subject == "file":
+        pass
+    elif Parsed_input.subject == "homework":
+        pass
 
-    if Parsed_input.subject == "homework":
-
-    if Parsed_input.subject == "group":
+    elif Parsed_input.subject == "group":
+        pass
