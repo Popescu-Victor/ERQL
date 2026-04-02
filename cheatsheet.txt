@@ -5,16 +5,17 @@ file>cloud>info
 file>cloud>download
 
 standard>info
-standard>plot>scatter>(*X axis*)>(*Y axis*)
-standard>plot>bar
-standard>plot>correlation   # same as scatter but with trendline
+standard>graph>scatter>(*X axis*)>(*Y axis*)
+standard>graph>bar
+standard>graph>correlation   # same as scatter but with trendline
 
-homework>upload>file>convert 
+homework>upload>file>convert
+homework>scrape
 
-file>graph>Study_Hours_Per_Day>Final_CGPA 
+virtual_class>graph>teachers>pie_chart 
 
-virtual_class>plot>teachers>pie_chart 
-
+group>info
 group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)
 group>add_teacher>teacher(*Jane Doe*)>student(*Jacob Smith*)
 group>remove_students
+group>remove_teacher
