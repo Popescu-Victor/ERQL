@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from collections import defaultdict
-from utils import errors_messagebox, validate_files, entried_per_student
+from ERQL.src import errors_messagebox
+from utils import validate_files, entried_per_student
 from src import interpreter, erql
 
 
@@ -44,7 +45,8 @@ def enter(): # Just proof of concept for the time being. Later on I'll replace t
             uploaded_file = erql.upload()
             file_info = f"Column Names: \n *************** \n {uploaded_file.file.columns.tolist()}"
             text_box.insert(tk.END, file_info)
-                if rendered.subj == "file":
+            if rendered.subj == "file":
+                pass
                     
         if rendered.verb == "plot":
             for widget in canvas1.winfo_children():
