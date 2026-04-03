@@ -41,11 +41,19 @@ class File_Var:   # Experimenting with class instead of file or function to make
         from tkinter import filedialog
         self.file = pd.read_csv(file)
 
-def upload():
+def upload_csv():
     from tkinter import filedialog
     file_open = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
+    print(file_open)
+    return file_open
+    
+
+def upload_excel():
+    from tkinter import filedialog
+    file_open = filedialog.askopenfilename(title="Select a file", filetypes=(("Excel files", "*.xlsx *.xls"), ("All files", "*.*")))
     file_object = File_Var(file_open)
     return file_object
+
 
 def folder_info():
     from tkinter import filedialog

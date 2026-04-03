@@ -19,7 +19,10 @@ def command_handler(Parsed_input):
 
     if Parsed_input.subject == "file":
         if Parsed_input.verb == "upload":
-            erql.upload()
+            if Parsed_input.obj == None:
+                erql.upload_excel()
+            if Parsed_input.obj[0] == "csv":
+                erql.upload_csv()
     elif Parsed_input.subject == "homework":
         pass
 

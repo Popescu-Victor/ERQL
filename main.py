@@ -25,7 +25,8 @@ text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 def enter(*args): # Just proof of concept for the time being. Later on I'll replace the many if-statements below with a hashmap.
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
-    commands.command_handler(parsed_input)
+    filepath = commands.command_handler(parsed_input)
+    print(filepath)
     
 entry.bind('<Return>', enter)
 
