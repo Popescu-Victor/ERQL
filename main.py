@@ -3,6 +3,7 @@ from tkinter import scrolledtext
 from tkinter import messagebox
 from src import interpreter
 from src import commands
+from src import erql
 
 
 root = tk.Tk()
@@ -22,12 +23,12 @@ canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
-def enter(*args): # Just proof of concept for the time being. Later on I'll replace the many if-statements below with a hashmap.
+def enter(*args): 
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
-    filepath = commands.command_handler(parsed_input)
-    print(filepath)
-    
+    if parsed_input.subject == "file" and parsed_input.verb == "upload":
+        filepathvar = erql.upload_csv()
+        text_box.insert(tk.END, filepathvar)
 entry.bind('<Return>', enter)
 
 btn = tk.Button(root, text="ENTER")
