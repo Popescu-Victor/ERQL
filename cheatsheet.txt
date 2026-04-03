@@ -1,7 +1,9 @@
 Cheat Sheet:
 
-file>upload
-file>cloud>info
+file>upload # Standard command for getting a file into the program's memory for further analysis. If given no additional arguments, it takes in .csv files by default.
+file>upload>csv # Same as file>upload, takes in .csv files.
+file>upload>excel # Takes in files in excel format.
+file>cloud>info # Returns info on files stored in cloud
 file>cloud>download
 
 standard>info
