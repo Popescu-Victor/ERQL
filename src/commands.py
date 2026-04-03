@@ -1,7 +1,7 @@
 from src import interpreter
 from src import erql
 import pandas as pd
-import errors_messagebox as error
+from src import errors_messagebox as error
 
 def command_handler(Parsed_input):
     if Parsed_input.subject == "standard":
@@ -19,7 +19,7 @@ def command_handler(Parsed_input):
 
     if Parsed_input.subject == "file":
         if Parsed_input.verb == "upload":
-            error.show_warning("missing_feature")
+            erql.upload()
     elif Parsed_input.subject == "homework":
         pass
 
