@@ -49,7 +49,7 @@ def upload_csv():
 
 def upload_excel():
     from tkinter import filedialog
-    file_open = filedialog.askopenfilename(parent = root, title="Select a file", filetypes=(("Excel files", "*.xlsx *.xls"), ("All files", "*.*")))
+    file_open = filedialog.askopenfilename(title="Select a file", filetypes=(("Excel files", "*.xlsx *.xls"), ("All files", "*.*")))
     file_object = File_Var(file_open)
     return file_object
 

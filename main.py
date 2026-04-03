@@ -6,9 +6,11 @@ from src import commands
 from src import erql
 from pathlib import Path
 import pandas as pd
+import openpyxl
+from src import errors_messagebox as error
 
 root = tk.Tk()
-root.title("'Non Comissioned' Organizational Tools")
+root.title("Educational Reporting Query Language")
 root.geometry("800x600")
 root.columnconfigure(0, weight=8)
 root.columnconfigure(1, weight=1)
@@ -34,6 +36,8 @@ def enter(*args):
                 df = pd.read_csv(file_path_var)
                 file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()}")
                 text_box.insert(tk.END, file_info_text)
+            if parsed_input.obj[0] == "excel":
+                error.show_warning("invalid_excel")
 entry.bind('<Return>', enter)
 
 btn = tk.Button(root, text="ENTER")

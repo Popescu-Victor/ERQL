@@ -9,7 +9,8 @@ WARNINGS = {
     "no_file": ("Error: no_file", "Please first upload a file using 'standard>upload' before performin analysis"),
     "invalid_data_type": ("Error: invalid_data_type", "Invalid data found in input. Please make sure the columns you're selecting are correctly formatted."),
     "title_error": ("Error: title_error", "ERQL can only perform this operation on files scraped from 'roarmy'."),
-    "missing_feature": ("Error: missing_feature", "The feature you are trying to access has not been implemented yet.")
+    "missing_feature": ("Error: missing_feature", "The feature you are trying to access has not been implemented yet."),
+    "invalid_excel": ("Error: invalid_excel", "ERQL can't currently handle excel files. Please convert your files to .csv before use.")
                         
 }
 
