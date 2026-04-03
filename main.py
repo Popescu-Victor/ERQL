@@ -27,11 +27,13 @@ text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 def enter(*args): 
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
-    if parsed_input.subject == "file" and parsed_input.verb == "upload":
-        file_path_var = erql.upload_csv()
-        df = pd.read_csv(file_path_var)
-        file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()}")
-        text_box.insert(tk.END, file_info_text)
+    if parsed_input.subject == "file":
+        if parsed_input.verb == "upload":
+            if not parsed_input.obj or parsed_input.obj[0] == "csv":
+                file_path_var = erql.upload_csv()
+                df = pd.read_csv(file_path_var)
+                file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()}")
+                text_box.insert(tk.END, file_info_text)
 entry.bind('<Return>', enter)
 
 btn = tk.Button(root, text="ENTER")
