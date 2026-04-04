@@ -43,6 +43,11 @@ def enter(*args):
                 text_box.insert(tk.END, file_info_text)
             if parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")
+
+
+    if parsed_input.subject == "clear":
+        text_box.delete("1.0", 'end')
+
 entry.bind('<Return>', enter)
 
 btn = tk.Button(root, text="ENTER")
