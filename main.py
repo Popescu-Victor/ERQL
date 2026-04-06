@@ -27,7 +27,7 @@ canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
-text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this app, write 'help>' in the field at the bottom left corner of the window.")
+text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this app, write 'help>' in the field at the bottom left corner of the window.\n\n")
 
 def enter(*args): 
     user_input = entry.get()
@@ -45,7 +45,8 @@ def enter(*args):
             elif parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")
         elif parsed_input.verb == "info":
-            erql.file_info()
+            csv_info = erql.file_info()
+            text_box.insert(tk.END, csv_info)
             
 
     elif parsed_input.subject == "clear":

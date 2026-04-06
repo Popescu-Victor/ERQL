@@ -79,10 +79,7 @@ def file_info():
     ext = Path(filepath).suffix
     if ext == ".csv":
         df = pd.read_csv(filepath)
-        csv_info = f"File info: \n\n Rows: {df.shape[0]} \n Columns: {df.shape[1]} \n {df.dtypes}"
+        csv_info = f"File info: \n\n Rows: {df.shape[0]} \n Columns: {df.shape[1]} \n\n {df.dtypes}"
     else:
-        csv_info = "Please select a .csv file."
+        csv_info = "Please select a .csv file.\n\n"
     return csv_info
-    
-    
-file_info()
