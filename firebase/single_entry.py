@@ -1,5 +1,7 @@
 from google.cloud import firestore
 
+
+
 db = firestore.Client(project="project-xxxxxxxx")
 collection_name = "ERQL_Single"
 doc_name = "Entry_001"

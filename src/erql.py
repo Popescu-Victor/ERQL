@@ -5,7 +5,6 @@ from tkinter import filedialog
 from tkinter import scrolledtext
 from collections import defaultdict
 import os
-import utils.entries_per_student as entries
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -73,4 +72,12 @@ def show_head():
             df = pd.read_excel(filepath)
             print(df.head())
 
+def file_info():
+    from tkinter import filedialog
+    from pathlib import Path
+    filepath = filedialog.askopenfilename()
+    print(filepath)
+    ext = Path(filepath).suffix
+    print(ext)
 
+file_info()
