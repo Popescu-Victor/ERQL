@@ -19,6 +19,6 @@ def validate_files(filepath):
     return list_of_clean_reports
 
 
-print(validate_files(r"C:\Users\popescu.victor\Desktop\Colab.zip"))
+print(validate_files(r"******.zip"))
 
 
