@@ -44,9 +44,11 @@ def enter(*args):
 
             elif parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")
+        elif parsed_input.verb == "info":
+            erql.file_info()
+            
 
-
-    if parsed_input.subject == "clear":
+    elif parsed_input.subject == "clear":
         text_box.delete("1.0", 'end')
 
 entry.bind('<Return>', enter)
