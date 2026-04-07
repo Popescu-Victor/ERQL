@@ -50,7 +50,10 @@ def enter(*args):
         elif parsed_input.verb == "info":
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
-            
+    elif parsed_input.subject == "virtual_class":
+        if parsed_input.verb == "info":
+            df = erql.virtual_analyse()
+            text_box.insert(tk.END, df[1,2])       
 
     elif parsed_input.subject == "clear":
         text_box.delete("1.0", 'end')
