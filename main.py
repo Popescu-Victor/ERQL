@@ -7,8 +7,11 @@ from src import erql
 from pathlib import Path
 import pandas as pd
 import openpyxl
+import seaborn as sns
 from src import errors_messagebox as error
 from utils.help import help_text
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 root = tk.Tk()
 root.title("Educational Reporting Query Language")
@@ -53,7 +56,16 @@ def enter(*args):
     elif parsed_input.subject == "virtual_class":
         if parsed_input.verb == "info":
             df = erql.virtual_analyse()
-            text_box.insert(tk.END, df[1,2])       
+            text_box.insert(tk.END, df)    
+        elif parsed_input.verb == "graph":
+            import matplotlib.pyplot as plt
+            df = erql.virtual_analyse()
+            fig = Figure()
+            ax = fig.add_subplot(111)
+            sns.barplot(x="Total", y="Nume Tutore", data=df, ax=ax)
+            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart.draw()
+            chart.get_tk_widget().pack(fill="both", expand=True)
 
     elif parsed_input.subject == "clear":
         text_box.delete("1.0", 'end')
