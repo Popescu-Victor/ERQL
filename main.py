@@ -47,7 +47,7 @@ def enter(*args):
             if not parsed_input.obj or parsed_input.obj[0] == "csv":
                 file_path_var = erql.upload_csv()
                 df = pd.read_csv(file_path_var)
-                file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()}")
+                file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()} \n \n")
                 text_box.insert(tk.END, file_info_text)
                 selected_file = fim.Filepath(file_path_var)
 
@@ -102,6 +102,13 @@ def enter(*args):
             chart = FigureCanvasTkAgg(fig, master=canvas1)
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
+            
+    elif parsed_input.subject == "copy":
+        text_box.tag_add(tk.SEL, "1.0", tk.END)
+        text_box.clipboard_clear()
+        text_box.clipboard_append(text_box.get("1.0", tk.END))
+
+
 
 entry.bind('<Return>', enter)
 
