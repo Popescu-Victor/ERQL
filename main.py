@@ -12,6 +12,8 @@ from src import errors_messagebox as error
 from utils.help import help_text
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+from src import file_in_memory as fim
 
 root = tk.Tk()
 root.title("Educational Reporting Query Language")
@@ -32,33 +34,38 @@ text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
 text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this app, write 'help>' in the field at the bottom left corner of the window.\n\n")
 
-def enter(*args): 
+def enter(*args):
+    global selected_file 
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
     if parsed_input.subject == "help":
         text_box.insert(tk.END, help_text)
     elif parsed_input.subject == "file":
+
         if parsed_input.verb == "upload":
+
             if not parsed_input.obj or parsed_input.obj[0] == "csv":
                 file_path_var = erql.upload_csv()
                 df = pd.read_csv(file_path_var)
                 file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()}")
                 text_box.insert(tk.END, file_info_text)
-                from src import file_in_memory as fim
-                print(fim.Filepath(file_path_var))
+                selected_file = fim.Filepath(file_path_var)
 
 
             elif parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")
+
         elif parsed_input.verb == "info":
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
+
     elif parsed_input.subject == "virtual_class":
+
         if parsed_input.verb == "info":
             df = erql.virtual_analyse()
-            text_box.insert(tk.END, df)    
+            text_box.insert(tk.END, df)   
+
         elif parsed_input.verb == "graph":
-            import matplotlib.pyplot as plt
             df = erql.virtual_analyse()
             fig = Figure()
             ax = fig.add_subplot(111)
@@ -69,6 +76,11 @@ def enter(*args):
 
     elif parsed_input.subject == "clear":
         text_box.delete("1.0", 'end')
+    
+    elif parsed_input.subject == "graph":
+        if parsed_input.verb == "bar":
+            sns.barplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=pd.read_csv(selected_file.filepath))
+            plt.show()
 
 entry.bind('<Return>', enter)
 
