@@ -55,6 +55,15 @@ def enter(*args):
             elif parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")
 
+        elif parsed_input.verb == "convert":
+            if len(parsed_input.obj) >= 2 and parsed_input.obj[0] == "excel" and parsed_input.obj[1] == "csv":
+                df = pd.read_excel(erql.upload_excel())
+                df.to_csv("file.csv", index=False)
+            
+            else:
+                error.show_warning("missing_feature")
+
+
         elif parsed_input.verb == "info":
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
