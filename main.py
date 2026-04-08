@@ -78,9 +78,21 @@ def enter(*args):
         text_box.delete("1.0", 'end')
     
     elif parsed_input.subject == "graph":
+        for widget in canvas1.winfo_children():
+            widget.destroy()
         if parsed_input.verb == "bar":
             sns.barplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=pd.read_csv(selected_file.filepath))
             plt.show()
+
+        elif parsed_input.verb == "scatter":
+            
+            fig = Figure()
+            ax = fig.add_subplot(111)
+            sns.scatterplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=pd.read_csv(selected_file.filepath), ax=ax)
+            plt.show()
+            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart.draw()
+            chart.get_tk_widget().pack(fill="both", expand=True)
 
 entry.bind('<Return>', enter)
 
