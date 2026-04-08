@@ -16,7 +16,7 @@ standard>graph>correlation   # same as scatter but with trendline
 homework>upload>file>convert
 homework>scrape
 
-virtual_class>graph>teachers>pie_chart 
+virtual_class>graph>teachers>pie_chart # Also works with "virtual class" and "virtualclass" as argments
 
 group>info
 group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)

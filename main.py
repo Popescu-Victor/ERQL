@@ -45,8 +45,8 @@ def enter(*args):
                 file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()}")
                 text_box.insert(tk.END, file_info_text)
                 from src import file_in_memory as fim
-                fpath = fim.Filepath(file_info_text)
-                print(fpath.filepath)
+                print(fim.Filepath(file_path_var))
+
 
             elif parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")

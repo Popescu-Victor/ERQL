@@ -1,3 +1,6 @@
 class Filepath:
-    def __init__(self, filepath_str):
-        self.filepath = filepath_str
+    def __init__(self, filepath):
+        self.filepath = filepath
+        
+    def __repr__(self):
+        return self.filepath
