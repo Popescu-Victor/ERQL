@@ -2,6 +2,11 @@ Cheat Sheet:
 
 help> # Prints out a short description of how ERQL works. Can be seen in utils/help.py.
 
+copy> # Selects all the text in the textbox on the right side of the window and copies it. Great for selecting formatted homework information.
+
+graph>bar>X>Y # Bar chart, replace X and Y with column names.
+graph>scatter>X>Y # Scatter plot, replace X and Y with column names.
+
 file>upload # Standard command for getting a file into the program's memory for further analysis. If given no additional arguments, it takes in .csv files by default.
 file>upload>csv # Same as file>upload, takes in .csv files.
 file>upload>excel # Takes in files in excel format.
