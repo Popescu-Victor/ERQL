@@ -16,3 +16,9 @@ There are three parts in this command, which are conveniently named after parts 
 
 
              """)
+
+help_fun = { "file>upload":"Stores a file in memory and returns some basic information about it in order to aid future analysis.\n\n"
+
+
+
+}
