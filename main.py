@@ -40,6 +40,7 @@ def enter(*args):
     parsed_input = interpreter.Parsed_input(user_input)
     if parsed_input.subject == "help":
         text_box.insert(tk.END, help_text)
+
     elif parsed_input.subject == "file":
 
         if parsed_input.verb == "upload":
@@ -85,6 +86,8 @@ def enter(*args):
 
     elif parsed_input.subject == "clear":
         text_box.delete("1.0", 'end')
+        for widget in canvas1.winfo_children():
+            widget.destroy()
     
     elif parsed_input.subject == "graph":
         for widget in canvas1.winfo_children():
