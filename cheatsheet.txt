@@ -15,9 +15,10 @@ file>cloud>download
 file>convert>excel>csv # Converts an excel file to csv
 
 standard>info
-standard>graph>scatter>(*X axis*)>(*Y axis*)
-standard>graph>bar
-standard>graph>correlation   # same as scatter but with trendline
+graph>scatter>(*X axis*)>(*Y axis*)
+graph>bar # Bar chart
+graph>hist Histogram
+graph>correlation   # same as scatter but with trendline
 
 homework>upload>file>convert
 homework>scrape
