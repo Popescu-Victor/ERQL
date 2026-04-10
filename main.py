@@ -39,7 +39,20 @@ def enter(*args):
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
     if parsed_input.subject == "help":
-        text_box.insert(tk.END, help_text)
+        if parsed_input.verb =="":
+            text_box.insert(tk.END, help_text)
+        elif parsed_input.verb == "file":
+            pass
+        elif parsed_input.verb == "graph":
+            pass
+        elif parsed_input.verb == "virtual_class":
+            pass
+        elif parsed_input.verb == "homework" or parsed_input.verb == "hw":
+            pass
+        elif parsed_input.verb == "standard":
+            pass
+        elif parsed_input.verb == "group" or parsed_input.verb == "groups":
+            pass
 
     elif parsed_input.subject == "file":
 
