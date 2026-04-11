@@ -48,7 +48,8 @@ def enter(*args):
         elif parsed_input.verb == "virtual_class":
             pass
         elif parsed_input.verb == "homework" or parsed_input.verb == "hw":
-            pass
+            from utils import help
+            text_box.insert(tk.END, help.help_homework)
         elif parsed_input.verb == "standard":
             pass
         elif parsed_input.verb == "group" or parsed_input.verb == "groups":

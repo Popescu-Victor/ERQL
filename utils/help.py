@@ -18,7 +18,6 @@ There are three parts in this command, which are conveniently named after parts 
              """)
 
 help_fun = { "file>upload":"Stores a file in memory and returns some basic information about it in order to aid future analysis.\n\n"
-
-
-
 }
+
+help_homework = "Upload a file using 'file>upload' then convert the raw scrapped excel file into ILIAS code using 'homework>convert'"
