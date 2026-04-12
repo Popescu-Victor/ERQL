@@ -21,3 +21,6 @@ help_fun = { "file>upload":"Stores a file in memory and returns some basic infor
 }
 
 help_homework = "Upload a file using 'file>upload' then convert the raw scrapped excel file into ILIAS code using 'homework>convert'"
+
+help_graph = "Upload a file using file>upload and then do the following: \n\n" \
+"Pick the type of graph you want to have displayed: \n 1. 'bar' for bar chart \n 2. 'scatter' for scatter plot \n 3. 'corr' for scatter plot with trendline \n\n Finally, pick the two columns with data that you wish to have displayed and add them to the script. In the end you should have something like this: \n graph>bar>hours_spent_studying>final_grade"

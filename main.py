@@ -14,6 +14,7 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from src import file_in_memory as fim
+from utils import help
 
 root = tk.Tk()
 root.title("Educational Reporting Query Language")
@@ -44,11 +45,10 @@ def enter(*args):
         elif parsed_input.verb == "file":
             pass
         elif parsed_input.verb == "graph":
-            pass
+            text_box.insert(tk.END, help.help_graph)
         elif parsed_input.verb == "virtual_class":
             pass
         elif parsed_input.verb == "homework" or parsed_input.verb == "hw":
-            from utils import help
             text_box.insert(tk.END, help.help_homework)
         elif parsed_input.verb == "standard":
             pass
