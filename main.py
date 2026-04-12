@@ -119,7 +119,18 @@ def enter(*args):
             chart = FigureCanvasTkAgg(fig, master=canvas1)
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
-            
+
+        elif parsed_input.verb == "correlation":
+            fig = Figure()
+            ax = fig.add_subplot(111)
+            x = parsed_input.obj[0]
+            y = parsed_input.obj[1]
+            df = pd.read_csv(selected_file.filepath)
+            erql.correlation(df[x], df[y], ax)
+            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart.draw()
+            chart.get_tk_widget().pack(fill="both", expand=True)
+
     elif parsed_input.subject == "copy":
         text_box.tag_add(tk.SEL, "1.0", tk.END)
         text_box.clipboard_clear()

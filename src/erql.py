@@ -83,3 +83,7 @@ def file_info():
     else:
         csv_info = "Please select a .csv file.\n\n"
     return csv_info
+
+def correlation(x, y, ax):
+    plot = sns.regplot(x=x, y=y, line_kws={'color':'red', 'linewidth':1, 'linestyle':'--'}, ax=ax)
+    return plot
