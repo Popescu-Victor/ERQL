@@ -1,4 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
+# This is for compiling the app.
 
 
 a = Analysis(
