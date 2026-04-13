@@ -2,10 +2,10 @@ Cheat Sheet:
 
 help> # Prints out a short description of how ERQL works. Can be seen in utils/help.py.
 
-copy> # Selects all the text in the textbox on the right side of the window and copies it. Great for selecting formatted homework information.
+save>text
+save>graph
 
-graph>bar>X>Y # Bar chart, replace X and Y with column names.
-graph>scatter>X>Y # Scatter plot, replace X and Y with column names.
+copy> # Selects all the text in the textbox on the right side of the window and copies it. Great for selecting formatted homework information.
 
 file>upload # Standard command for getting a file into the program's memory for further analysis. If given no additional arguments, it takes in .csv files by default.
 file>upload>csv # Same as file>upload, takes in .csv files.
@@ -14,13 +14,12 @@ file>cloud>info # Returns info on files stored in cloud
 file>cloud>download
 file>convert>excel>csv # Converts an excel file to csv
 
-standard>info
 graph>scatter>(*X axis*)>(*Y axis*)
 graph>bar # Bar chart
-graph>hist Histogram
+graph>hist # Histogram
 graph>correlation   # same as scatter but with trendline
 
-homework>upload>file>convert
+homework>convert # Takes in a .csv file (with scraped homework data) and returns code that can be pasted inside SCORM to create a table of students that have uncorrected projects and links that take to those, to make it easier for teachers to catch up with grading assignments.
 homework>scrape
 
 virtual_class>graph>teachers>pie_chart # Also works with "virtual class" and "virtualclass" as argments
