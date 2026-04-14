@@ -78,4 +78,4 @@ virtual_class>plot>teachers>pie_chart
 
 group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)
 
- <img src="https://github.com/Popescu-Victor/ERQL/blob/main/CaptureERQL.PNG?raw=true" alt="GUI">
+ <img src="https://github.com/Popescu-Victor/ERQL/blob/main/example.PNG?raw=true" alt="GUI">
