@@ -17,7 +17,7 @@ from src import file_in_memory as fim
 from utils import help
 
 root = tk.Tk()
-root.title("Educational Reporting Query Language")
+root.title("Education, Reporting & Query Language")
 root.geometry("800x600")
 root.columnconfigure(0, weight=8)
 root.columnconfigure(1, weight=1)
