@@ -13,7 +13,13 @@ There are three parts in this command, which are conveniently named after parts 
 \n 3. Have the type of file be .csv.
 
 \n\n Although ERQL can work with Excel files as well, to avoid formatting errors caused by using different versions we strongly recommend saving your files in .csv before working on them.
-
+\n\n Enter "help>" + one of the following 'verbs' to get more information:
+\n\n graph - for creating graphs and charts
+\n file - for storing .csv files in the program's memory
+\n homework - for parsing through homework data
+\n virtual_class - for parsing through vc data
+\n save - for saving the graph or the text into a separate file
+\n group - for matching students to their tutor and storing these relations in a database
 
              """)
 
