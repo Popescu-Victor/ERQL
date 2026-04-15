@@ -1,8 +1,8 @@
 # ERQL
-📚 ERQL (Educational Reporting Query Language)
+📚 ERQL (Education, Reporting & Query Language)
 🧠 Overview
 
-ERQL (Educational Reporting Query Language) is a lightweight tool designed to make educational reporting and data analysis fast, simple, and accessible.
+ERQL (Education, Reporting & Query Language) is a lightweight tool designed to make educational reporting and data analysis fast, simple, and accessible.
 
 It introduces a human-readable query language that allows users to generate reports, analyze data, and manipulate files with minimal friction — even on restricted or low-performance systems.
 🎯 Motivation
