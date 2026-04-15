@@ -37,6 +37,7 @@ text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this 
 
 def enter(*args):
     global selected_file 
+
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
     if parsed_input.subject == "help":
@@ -107,8 +108,10 @@ def enter(*args):
         for widget in canvas1.winfo_children():
             widget.destroy()
         if parsed_input.verb == "bar":
-            sns.barplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=pd.read_csv(selected_file.filepath))
-            plt.show()
+            barplot = sns.barplot(x=parsed_input.obj[1], y=parsed_input.obj[0], data=pd.read_csv(selected_file.filepath))
+            chart = FigureCanvasTkAgg(barplot.get_figure(), master=canvas1)
+            chart.draw()
+            chart.get_tk_widget().pack(fill="both", expand=True)
 
         elif parsed_input.verb == "scatter":
             
