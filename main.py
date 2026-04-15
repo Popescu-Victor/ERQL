@@ -16,7 +16,9 @@ import matplotlib.pyplot as plt
 from src import file_in_memory as fim
 from utils import help
 
-root = tk.Tk()
+
+# This is the main file of the program, where the GUI is created and the user input is processed.
+# Creating the layout of the GUI using tkinter.
 root.title("Education, Reporting & Query Language")
 root.geometry("800x600")
 root.columnconfigure(0, weight=8)
@@ -24,6 +26,7 @@ root.columnconfigure(1, weight=1)
 root.rowconfigure(0, weight=1)
 root.rowconfigure(1, weight=0)
 
+# The text box on the right is for displaying the output of the commands, while the canvas on the left is for displaying graphs and charts. The entry at the bottom is for the user to input their commands.
 text_box = scrolledtext.ScrolledText(root,width=30,height=20,highlightthickness=2, highlightbackground="gray",wrap=tk.WORD)
 text_box.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
@@ -33,6 +36,7 @@ canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
+# This text gets pasted when the program starts so that first time users have some guidance on how to use the program. It also serves as a welcome message for returning users.
 text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this app, write 'help>' in the field at the bottom left corner of the window.\n\n")
 
 def enter(*args):
