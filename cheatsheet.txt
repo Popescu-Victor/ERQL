@@ -29,3 +29,8 @@ group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)
 group>add_teacher>teacher(*Jane Doe*)>student(*Jacob Smith*)
 group>remove_students
 group>remove_teacher
+
+stats>lin_reg
+stats>log_reg
+stats>knn
+stats>anova
