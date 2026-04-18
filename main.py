@@ -62,7 +62,7 @@ def enter(*args):
             pass
     
     elif parsed_input.subject == "stats":
-        if parsed_input.verb == "hist":
+        if parsed_input.verb == "correlation":
             df = pd.read_csv(selected_file.filepath)
             target_col = parsed_input.obj[0]
             other_cols = [col for col in df.select_dtypes(include='number').columns if col != target_col]
@@ -75,7 +75,7 @@ def enter(*args):
             axes = axes.flatten()
 
             for i, col in enumerate(other_cols):
-                sns.regplot(x=col, y=target_col, data=df, ax=axes[i])
+                sns.regplot(x=col, y=target_col, data=df, ax=axes[i], scatter_kws={'alpha':0.3, "s":30} ,line_kws={"color":"red","linewidth":0.7, "linestyle":"--"})
                 axes[i].set_title(f'{col} vs {target_col}')
 
             # Hide any unused subplots
@@ -83,7 +83,10 @@ def enter(*args):
                 axes[j].set_visible(False)
 
             plt.tight_layout()
-            plt.show()
+            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart.draw()
+            chart.get_tk_widget().pack(fill="both", expand=True)
+
 
     elif parsed_input.subject == "file":
 
