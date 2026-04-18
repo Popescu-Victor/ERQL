@@ -118,7 +118,8 @@ def enter(*args):
             if not parsed_input.obj or parsed_input.obj[0] == "csv":
                 file_path_var = erql.upload_csv()
                 df = pd.read_csv(file_path_var)
-                file_info_text = (f"Filepath: {file_path_var} \n \n Columns: {df.columns.tolist()} \n \n")
+                file_name = file_path_var.split('/')[-1]
+                file_info_text = (f"File: {file_name} \n \n Columns: {df.columns.tolist()} \n \n")
                 text_box.insert(tk.END, file_info_text)
                 selected_file = fim.Filepath(file_path_var)
 
