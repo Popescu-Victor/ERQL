@@ -108,6 +108,9 @@ def enter(*args):
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
+            text = help.stats_hist(selected_file.filepath)
+            text_box.insert(tk.END, text)
+
     elif parsed_input.subject == "file":
 
         if parsed_input.verb == "upload":
