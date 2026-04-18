@@ -66,3 +66,4 @@ ERQL is designed for educational environments where simplicity and accessibility
 
     🏫 Support institutions with restricted IT environments
 
+<img src="https://github.com/Popescu-Victor/ERQL/blob/main/stats_hist.JPG?raw=true" alt="GUI">
