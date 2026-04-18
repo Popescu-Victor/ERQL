@@ -99,7 +99,8 @@ def enter(*args):
                 sns.kdeplot(df[col], fill=True, ax=axes[i])
                 axes[i].axvline(df[col].median(), color='red', linestyle='--', linewidth=1.5, label=f'Median: {df[col].median():.2f}')
                 axes[i].set_title(col,fontsize=10)
-                axes[i].legend()
+            for ax in axes.flatten():
+                ax.set_ylabel('')
             for j in range(i+1, len(axes)):
                 axes[j].set_visible(False)
             plt.tight_layout(pad=2.0)
