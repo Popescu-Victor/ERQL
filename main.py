@@ -15,8 +15,9 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from src import file_in_memory as fim
 from utils import help
+import math
 
-
+root = tk.Tk()
 # This is the main file of the program, where the GUI is created and the user input is processed.
 # Creating the layout of the GUI using tkinter.
 root.title("Education, Reporting & Query Language")
@@ -59,6 +60,30 @@ def enter(*args):
             pass
         elif parsed_input.verb == "group" or parsed_input.verb == "groups":
             pass
+    
+    elif parsed_input.subject == "stats":
+        if parsed_input.verb == "hist":
+            df = pd.read_csv(selected_file.filepath)
+            target_col = parsed_input.obj[0]
+            other_cols = [col for col in df.select_dtypes(include='number').columns if col != target_col]
+
+            n = len(other_cols)
+            ncols = 3
+            nrows = math.ceil(n / ncols)
+
+            fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(4*ncols, 2*nrows))
+            axes = axes.flatten()
+
+            for i, col in enumerate(other_cols):
+                sns.regplot(x=col, y=target_col, data=df, ax=axes[i])
+                axes[i].set_title(f'{col} vs {target_col}')
+
+            # Hide any unused subplots
+            for j in range(i+1, len(axes)):
+                axes[j].set_visible(False)
+
+            plt.tight_layout()
+            plt.show()
 
     elif parsed_input.subject == "file":
 
