@@ -2,6 +2,7 @@
 📚 ERQL (Education, Reporting & Query Language)
 🧠 Overview
 
+<img src="https://github.com/Popescu-Victor/ERQL/blob/main/logo2.png?raw=true" alt="GUI">
 ERQL (Education, Reporting & Query Language) is a lightweight tool designed to make educational reporting and data analysis fast, simple, and accessible.
 <img src="https://github.com/Popescu-Victor/ERQL/blob/main/example.PNG?raw=true" alt="GUI">
 It introduces a human-readable query language that allows users to generate reports, analyze data, and manipulate files with minimal friction — even on restricted or low-performance systems.
