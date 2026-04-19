@@ -20,6 +20,10 @@ import math
 root = tk.Tk()
 # This is the main file of the program, where the GUI is created and the user input is processed.
 # Creating the layout of the GUI using tkinter.
+
+icon = tk.PhotoImage(file="logo2.png")
+root.iconphoto(True, icon)
+
 root.title("Education, Reporting & Query Language")
 root.geometry("800x600")
 root.columnconfigure(0, weight=8)
@@ -62,6 +66,8 @@ def enter(*args):
             pass
     
     elif parsed_input.subject == "stats":
+        for widget in canvas1.winfo_children():
+            widget.destroy()
         df = pd.read_csv(selected_file.filepath)
         if parsed_input.verb == "correlation":
             target_col = parsed_input.obj[0]
@@ -75,7 +81,7 @@ def enter(*args):
             axes = axes.flatten()
 
             for i, col in enumerate(other_cols):
-                sns.regplot(x=col, y=target_col, data=df, ax=axes[i], scatter_kws={'alpha':0.3, "s":30} ,line_kws={"color":"red","linewidth":0.7, "linestyle":"--"})
+                sns.regplot(x=col, y=target_col, data=df, ax=axes[i], scatter_kws={'alpha':0.05, "s":30} ,line_kws={"color":"red","linewidth":0.7, "linestyle":"--"})
                 axes[i].set_title(f'{col} vs {target_col}')
 
             for j in range(i+1, len(axes)):
@@ -119,7 +125,7 @@ def enter(*args):
                 file_path_var = erql.upload_csv()
                 df = pd.read_csv(file_path_var)
                 file_name = file_path_var.split('/')[-1]
-                file_info_text = (f"File: {file_name} \n \n Columns: {df.columns.tolist()} \n \n")
+                file_info_text = (f"You have loaded: {file_name} into the program's memory. You can now perform actions on it. \n \nColumns: {df.columns.tolist()} \n \n")
                 text_box.insert(tk.END, file_info_text)
                 selected_file = fim.Filepath(file_path_var)
 
