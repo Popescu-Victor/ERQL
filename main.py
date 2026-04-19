@@ -21,8 +21,8 @@ root = tk.Tk()
 # This is the main file of the program, where the GUI is created and the user input is processed.
 # Creating the layout of the GUI using tkinter.
 
-icon = tk.PhotoImage(file="logo2.png")
-root.iconphoto(True, icon)
+icon = tk.PhotoImage(file="icon.png")
+root.iconbitmap("This2.ico")
 
 root.title("Education, Reporting & Query Language")
 root.geometry("800x600")

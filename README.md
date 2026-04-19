@@ -2,7 +2,7 @@
 📚 ERQL (Education, Reporting & Query Language)
 🧠 Overview
 
-<img src="https://github.com/Popescu-Victor/ERQL/blob/main/logo2.png?raw=true" alt="GUI">
+<img src="https://github.com/Popescu-Victor/ERQL/blob/main/logo.png?raw=true" alt="GUI">
 <p align="center">_Logo made by Bobes Bogdan_</p>
 
 
