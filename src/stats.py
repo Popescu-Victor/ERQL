@@ -23,6 +23,30 @@ def correlation():
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
+def hist():
+            num_cols = df.select_dtypes(include='number').columns
+            n = len(num_cols)
+            ncols = 3
+            nrows = math.ceil(n / ncols)
+
+            fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(4*ncols, 2*nrows))
+            axes = axes.flatten()
+
+            for i, col in enumerate(num_cols):
+                sns.kdeplot(df[col], fill=True, ax=axes[i])
+                axes[i].axvline(df[col].median(), color='red', linestyle='--', linewidth=1.5, label=f'Median: {df[col].median():.2f}')
+                axes[i].set_title(col,fontsize=10)
+            for ax in axes.flatten():
+                ax.set_ylabel('')
+            for j in range(i+1, len(axes)):
+                axes[j].set_visible(False)
+            plt.tight_layout(pad=2.0)
+            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart.draw()
+            chart.get_tk_widget().pack(fill="both", expand=True)
+
+            text = help.stats_hist(selected_file.filepath)
+            text_box.insert(tk.END, text)
 
 def knn():
   pass
