@@ -3,7 +3,7 @@
 🧠 Overview
 
 <img src="https://github.com/Popescu-Victor/ERQL/blob/main/logo2.png?raw=true" alt="GUI">
-*Logo made by Bobes Bogdan*
+<p align="center">_Logo made by Bobes Bogdan_</p>
 
 
 
