@@ -210,8 +210,19 @@ def enter(*args):
             filetypes=[("PNG files", "*.png"), ("JPEG files", "*.jpg"), ("All files", "*.*")],
             title="Save Figure As")
 
-        if save_path:  # user didn't cancel
-            fig.savefig(save_path)
+            if save_path:
+                fig.savefig(save_path)
+
+        if parsed_input.verb == "text":
+            save_path = filedialog.asksaveasfilename(
+            defaultextension=".txt",
+            filetypes=[("Text files", "*.txt"), ("All files", "*.*")],
+            title="Save Text As")
+
+            if save_path:
+                with open(save_path, 'w') as f:
+                    f.write(text_box.get("1.0", tk.END))
+
 
 entry.bind('<Return>', enter)
 
