@@ -2,6 +2,7 @@ from tkinter import messagebox
 
 WARNINGS = {
     "args_number":      ("Error: args_number",    "Your input has the wrong number of arguments."),
+    "missing_arg_correlation": ("Error: missing_arg_correlation", "Please specify the target column for correlation plots. Example: 'stats>correlation>target_column'"),
     "invalid_syntax":   ("Error: invalid_syntax",  "Please separate your arguments using the '>' sign with no spaces"),
     "invalid_subject":  ("Error: invalid_subject", "Invalid first argument. Use 'help>subjects' for more information."),
     "invalid_verb": ("Error: invalid_verb", "Invalid second argument. Use 'help>verbs' for more information."),
