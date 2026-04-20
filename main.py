@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import messagebox
+from tkinter import filedialog
+import os
 from src import interpreter
 from src import commands
 from src import erql
@@ -20,9 +22,9 @@ import math
 root = tk.Tk()
 # This is the main file of the program, where the GUI is created and the user input is processed.
 # Creating the layout of the GUI using tkinter.
-
-icon = tk.PhotoImage(file="icon.png")
-root.iconbitmap("This2.ico")
+base_dir = os.path.dirname(os.path.abspath(__file__))
+icon_path = os.path.join(base_dir, "This2.ico")
+root.iconbitmap(icon_path)
 
 root.title("Education, Reporting & Query Language")
 root.geometry("800x600")
@@ -46,7 +48,7 @@ text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this 
 
 def enter(*args):
     global selected_file 
-
+    global fig
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
     if parsed_input.subject == "help":
@@ -201,7 +203,15 @@ def enter(*args):
         text_box.clipboard_clear()
         text_box.clipboard_append(text_box.get("1.0", tk.END))
 
+    elif parsed_input.subject == "save":
+        if parsed_input.verb == "graph":
+            save_path = filedialog.asksaveasfilename(
+            defaultextension=".png",
+            filetypes=[("PNG files", "*.png"), ("JPEG files", "*.jpg"), ("All files", "*.*")],
+            title="Save Figure As")
 
+        if save_path:  # user didn't cancel
+            fig.savefig(save_path)
 
 entry.bind('<Return>', enter)
 
