@@ -203,6 +203,9 @@ def enter(*args):
         text_box.clipboard_clear()
         text_box.clipboard_append(text_box.get("1.0", tk.END))
 
+
+# Saving graphs as image files and text as .txt files is also possible through the program. The user can choose where to save the file and what name to give it.
+
     elif parsed_input.subject == "save":
         if parsed_input.verb == "graph":
             save_path = filedialog.asksaveasfilename(
