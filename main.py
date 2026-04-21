@@ -182,10 +182,11 @@ def enter(*args):
             chart.get_tk_widget().pack(fill="both", expand=True)
 
         elif parsed_input.verb == "scatter":
-            
+            df = pd.read_csv(selected_file.filepath)
+            alpha_level = erql.set_alpha_level(df.shape[0])
             fig = Figure()
             ax = fig.add_subplot(111)
-            sns.scatterplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=pd.read_csv(selected_file.filepath), ax=ax)
+            sns.scatterplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=df, ax=ax, alpha=alpha_level)
             plt.show()
             chart = FigureCanvasTkAgg(fig, master=canvas1)
             chart.draw()
