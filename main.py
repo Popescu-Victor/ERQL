@@ -87,7 +87,7 @@ def enter(*args):
                 axes = axes.flatten()
 
                 for i, col in enumerate(other_cols):
-                    sns.regplot(x=col, y=target_col, data=df, ax=axes[i], scatter_kws={'alpha':0.05, "s":30} ,line_kws={"color":"red","linewidth":0.7, "linestyle":"--"})
+                    sns.regplot(x=col, y=target_col, data=df, ax=axes[i], scatter_kws={'alpha':erql.set_alpha_level(df.shape[0]), "s":30} ,line_kws={"color":"red","linewidth":0.7, "linestyle":"--"})
                     axes[i].set_title(f'{col} vs {target_col}')
 
                 for j in range(i+1, len(axes)):

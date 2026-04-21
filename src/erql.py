@@ -99,6 +99,6 @@ def set_alpha_level(rows):
     elif rows <= 50:
         return 0.5
     elif rows <= 100:
-        return 0.3
+        return 0.2
     else:
-        return 0.1
+        return 0.05
