@@ -10,6 +10,8 @@ import seaborn as sns
 
 
 
+
+
 def virtual_analyse(): # This functions if for parsing the data from a Google form that we use.
     from tkinter import filedialog
     file = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
@@ -84,6 +86,19 @@ def file_info():
         csv_info = "Please select a .csv file.\n\n"
     return csv_info
 
-def correlation(x, y, ax):
-    plot = sns.regplot(x=x, y=y, line_kws={'color':'red', 'linewidth':1, 'linestyle':'--'}, ax=ax)
+def correlation(x, y, ax, rows):
+    alpha = set_alpha_level(rows)
+    plot = sns.regplot(x=x, y=y, line_kws={'color':'red', 'linewidth':1, 'linestyle':'--'}, ax=ax, scatter_kws={'alpha': set_alpha_level(rows), 's':30})
     return plot
+
+def set_alpha_level(rows):
+    if rows <= 10:
+        return 1
+    elif rows <= 30:
+        return 0.7
+    elif rows <= 50:
+        return 0.5
+    elif rows <= 100:
+        return 0.3
+    else:
+        return 0.1

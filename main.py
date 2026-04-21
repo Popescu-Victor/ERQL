@@ -197,7 +197,8 @@ def enter(*args):
             x = parsed_input.obj[0]
             y = parsed_input.obj[1]
             df = pd.read_csv(selected_file.filepath)
-            erql.correlation(df[x], df[y], ax)
+            print(df.shape[0])
+            erql.correlation(df[x], df[y], ax, df.shape[0])
             chart = FigureCanvasTkAgg(fig, master=canvas1)
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
