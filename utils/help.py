@@ -43,6 +43,12 @@ help_virtual_class = "Upload a file using 'file>upload' then convert the raw scr
 # help>save
 help_save = "After creating a graph or parsing through some data, you can save the resulting graph or text into a separate file using the 'save' verb. To do this, use the following script: \n\n save>graph>png \n\n where 'graph' is the type of content you wish to save and 'png' is the type of file you wish to save it as. You can also use 'text' instead of 'graph' if you wish to save some text instead of a graph."
 
+# help>stats
+help_stats = """Upload a file using 'file>upload' then perform statistical analysis on the entire file using one of the following:
+\n\n 1. 'hist' for histograms of all numerical columns in the file \n 2. 'correlation' and another column name for calculating the correlation between that column and all other numerical columns in the file. \n 3. 'heatmap' for a heatmap of the correlations between all numerical columns in the file. 
+"""
+
+
 def stats_hist(file_path):
     file_name = file_path.split('/')[-1]
     text = f"Successfully created histograms for '{file_name}'. \nThe dotted red line marks the median."
