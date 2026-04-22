@@ -115,6 +115,7 @@ def enter(*args):
                 axes[i].set_title(col,fontsize=10)
             for ax in axes.flatten():
                 ax.set_ylabel('')
+                ax.set_xlabel('')
             for j in range(i+1, len(axes)):
                 axes[j].set_visible(False)
             plt.tight_layout(pad=2.0)
