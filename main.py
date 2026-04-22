@@ -62,12 +62,10 @@ def enter(*args):
             pass
         elif parsed_input.verb == "homework" or parsed_input.verb == "hw":
             text_box.insert(tk.END, help.help_homework)
-        elif parsed_input.verb == "standard":
-            pass
-        elif parsed_input.verb == "group" or parsed_input.verb == "groups":
-            pass
         elif parsed_input.verb == "stats":
             text_box.insert(tk.END, help.help_stats)
+        elif parsed_input.verb == "save":
+            text_box.insert(tk.END, help.help_save)
     
     elif parsed_input.subject == "stats":
         for widget in canvas1.winfo_children():
