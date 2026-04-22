@@ -89,6 +89,8 @@ def enter(*args):
                 for i, col in enumerate(other_cols):
                     sns.regplot(x=col, y=target_col, data=df, ax=axes[i], scatter_kws={'alpha':erql.set_alpha_level(df.shape[0]), "s":30} ,line_kws={"color":"red","linewidth":0.7, "linestyle":"--"})
                     axes[i].set_title(f'{col} vs {target_col}')
+                    axes[i].set_xlabel("")
+                    axes[i].set_ylabel("")
 
                 for j in range(i+1, len(axes)):
                     axes[j].set_visible(False)

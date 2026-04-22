@@ -91,6 +91,11 @@ def correlation(x, y, ax, rows):
     plot = sns.regplot(x=x, y=y, line_kws={'color':'red', 'linewidth':1, 'linestyle':'--'}, ax=ax, scatter_kws={'alpha': set_alpha_level(rows), 's':30})
     return plot
 
+def heatmap(df, ax):
+    plot = sns.heatmap(df.corr(), annot=True, cmap='coolwarm', ax=ax)
+    return plot
+
+
 def set_alpha_level(rows):
     if rows <= 10:
         return 1
