@@ -55,11 +55,11 @@ def enter(*args):
         if parsed_input.verb =="":
             text_box.insert(tk.END, help_text)
         elif parsed_input.verb == "file":
-            pass
+            text_box.insert(tk.END, help.help_file)
         elif parsed_input.verb == "graph":
             text_box.insert(tk.END, help.help_graph)
         elif parsed_input.verb == "virtual_class":
-            pass
+            text_box.insert(tk.END, help.help_virtual_class)
         elif parsed_input.verb == "homework" or parsed_input.verb == "hw":
             text_box.insert(tk.END, help.help_homework)
         elif parsed_input.verb == "stats":

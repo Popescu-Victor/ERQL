@@ -49,6 +49,7 @@ help_stats = """Upload a file using 'file>upload' then perform statistical analy
 """
 
 
+
 def stats_hist(file_path):
     file_name = file_path.split('/')[-1]
     text = f"Successfully created histograms for '{file_name}'. \nThe dotted red line marks the median."
