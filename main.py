@@ -71,7 +71,12 @@ def enter(*args):
         for widget in canvas1.winfo_children():
             widget.destroy()
         df = pd.read_csv(selected_file.filepath)
-        if parsed_input.verb == "correlation":
+
+        if parsed_input.verb == "kmeans":
+            k = parsed_input.obj[0] if parsed_input.obj else 3
+            erql.k_means(k, df)
+
+        elif parsed_input.verb == "correlation":
             if not parsed_input.obj:
                 error.show_warning("missing_arg_correlation")
                 return
@@ -125,6 +130,8 @@ def enter(*args):
 
             text = help.stats_hist(selected_file.filepath)
             text_box.insert(tk.END, text)
+    
+
 
     elif parsed_input.subject == "file":
 
@@ -150,6 +157,8 @@ def enter(*args):
             else:
                 error.show_warning("missing_feature")
 
+        elif parsed_input.verb == "show":
+            pass
 
         elif parsed_input.verb == "info":
             csv_info = erql.file_info()

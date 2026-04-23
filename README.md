@@ -30,17 +30,11 @@ ERQL aims to solve both problems by being:
 
     🧾 Simple, human-readable query language
 
-    📊 Quick generation of educational reports
+    📊 Quick generation of graphs and reports
 
     📁 File manipulation through scripts
 
-    🎓 Designed for real-world LMS workflows:
-
-        Attendance tracking
-
-        Homework grading analysis
-
-        Student churn monitoring
+    📈 Bar charts, scatter plots, histograms, kmeans clustering, regression etc.
 
     ⚡ Lightweight and efficient (with ongoing performance improvements)
 
@@ -50,7 +44,8 @@ ERQL aims to solve both problems by being:
 
     Tkinter (GUI interface)
 
-    Rust (experimental) — for performance-critical components
+    Other libraries: Pandas, Numpy, Scipy, Scikit-Learn, Matplotlib, Seaborn
+
 
 🚧 Project Status
 
