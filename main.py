@@ -18,6 +18,7 @@ import matplotlib.pyplot as plt
 from src import file_in_memory as fim
 from utils import help
 import math
+from scraping import webdriver
 
 root = tk.Tk()
 # This is the main file of the program, where the GUI is created and the user input is processed.
@@ -250,10 +251,13 @@ def enter(*args):
                 with open(save_path, 'w') as f:
                     f.write(text_box.get("1.0", tk.END))
 
-    elif parsed_input.subject == "scrape":
+    elif parsed_input.subject == "ilias":
         if parsed_input.verb == "login":
+            global login
             login = erql.scrape_ilias(parsed_input.obj[0], parsed_input.obj[1])
             print(login)
+        elif parsed_input.verb == "scrape":    
+            webdriver.hw_scrape(login[0], login[1])
 
 entry.bind('<Return>', enter)
 

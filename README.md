@@ -32,6 +32,8 @@ ERQL aims to solve both problems by being:
 
     📊 Quick generation of graphs and reports
 
+    🪏 Scraping and interpreting SCORM data
+
     📁 File manipulation through scripts
 
     📈 Bar charts, scatter plots, histograms, kmeans clustering, regression etc.
@@ -44,7 +46,7 @@ ERQL aims to solve both problems by being:
 
     Tkinter (GUI interface)
 
-    Other libraries: Pandas, Numpy, Scipy, Scikit-Learn, Matplotlib, Seaborn
+    Other libraries: Pandas, Numpy, Scipy, Scikit-Learn, Matplotlib, Seaborn, Selenium
 
 
 🚧 Project Status
