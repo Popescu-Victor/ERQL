@@ -250,6 +250,10 @@ def enter(*args):
                 with open(save_path, 'w') as f:
                     f.write(text_box.get("1.0", tk.END))
 
+    elif parsed_input.subject == "scrape":
+        if parsed_input.verb == "login":
+            login = erql.scrape_ilias(parsed_input.obj[0], parsed_input.obj[1])
+            print(login)
 
 entry.bind('<Return>', enter)
 

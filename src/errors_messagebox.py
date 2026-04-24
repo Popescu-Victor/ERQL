@@ -12,7 +12,8 @@ WARNINGS = {
     "title_error": ("Error: title_error", "ERQL can only perform this operation on files scraped from 'roarmy'."),
     "missing_feature": ("Error: missing_feature", "The feature you are trying to access has not been implemented yet."),
     "invalid_excel": ("Error: invalid_excel", "ERQL can't currently handle excel files. Please convert your files to .csv before use."),
-    "help>": ("Error: help>", "Please put the function you need help with inside brackets!")
+    "help>": ("Error: help>", "Please put the function you need help with inside brackets!"),
+    "missing_login_info": ("Error: missing_login_info", "Please provide both username and password separated by '>' sign before proceeding. Example: 'login>username>password'"),
                         
 }
 

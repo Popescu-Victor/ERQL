@@ -8,6 +8,8 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+from src import login_details
+from src import errors_messagebox
 
 def stats_show():
     pass
@@ -115,3 +117,7 @@ def set_alpha_level(rows):
         return 0.2
     else:
         return 0.05
+
+def scrape_ilias(username, password):
+    login = login_details.Username_Password(username, password)
+    return login.input_as_list

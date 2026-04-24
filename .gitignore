@@ -2,3 +2,7 @@
 dist/
 build/
 utils/sandbox.py
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
