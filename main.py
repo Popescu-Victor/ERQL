@@ -2,6 +2,10 @@ import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import messagebox
 from tkinter import filedialog
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
 import os
 from src import interpreter
 from src import commands
