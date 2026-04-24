@@ -32,7 +32,7 @@ ERQL aims to solve both problems by being:
 
     📊 Quick generation of graphs and reports
 
-    🪏 Scraping and interpreting SCORM data
+    🔗 Scraping and interpreting SCORM data
 
     📁 File manipulation through scripts
 
@@ -54,18 +54,6 @@ ERQL aims to solve both problems by being:
 ⚠️ This project is currently work in progress.
 
 Core features are under active development, and the query language is still evolving.
-💡 Example Use Cases
 
-ERQL is designed for educational environments where simplicity and accessibility matter:
-
-    📅 Monitor classroom attendance trends
-
-    📝 Analyze homework completion rates
-
-    📉 Track student churn and engagement
-
-    📊 Generate quick reports without external tools
-
-    🏫 Support institutions with restricted IT environments
 
 <img src="https://github.com/Popescu-Victor/ERQL/blob/main/stats_hist.jpg?raw=true" alt="hist">
