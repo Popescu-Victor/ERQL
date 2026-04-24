@@ -1,9 +1,14 @@
+import matplotlib.pyplot as plt
 import pandas as pd
-import plotly.figure_factory as ff
 
 
-file = r"C:\Users\popescu.victor\Desktop\NCA\table.csv"
-df = pd.read_csv(file)
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(x, y, 'g--', linewidth=2)
 
-fig = ff.create_table(df)
-fig.show()
+
+ax.set_title('Normal Distribution - Right Tail Highlighted')
+ax.set_xlabel('Value')
+ax.set_ylabel('Probability Density')
+ax.legend()
+plt.tight_layout()
+plt.show()

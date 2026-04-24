@@ -164,6 +164,12 @@ def enter(*args):
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
 
+        elif parsed_input.verb == "anon":
+            from utils import file_anonymizer_standard
+            file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
+
+
+
     elif parsed_input.subject == "virtual_class":
 
         if parsed_input.verb == "info":
