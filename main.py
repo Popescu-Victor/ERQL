@@ -72,7 +72,7 @@ def enter(*args):
         elif parsed_input.verb == "save":
             text_box.insert(tk.END, help.help_save)
     
-    elif parsed_input.subject == "stats":
+    elif parsed_input.subject == "stats": # Statistical analysis, usually done on multiple columns at once or even to the entire dataset where possible.
         for widget in canvas1.winfo_children():
             widget.destroy()
         df = pd.read_csv(selected_file.filepath)
@@ -110,7 +110,7 @@ def enter(*args):
                 chart.draw()
                 chart.get_tk_widget().pack(fill="both", expand=True)
 
-        elif parsed_input.verb == "hist":
+        elif parsed_input.verb == "hist": # Histogram, shows distribution of data in all numberical columns of the dataset.
             num_cols = df.select_dtypes(include='number').columns
             n = len(num_cols)
             ncols = 3
@@ -138,9 +138,9 @@ def enter(*args):
     
 
 
-    elif parsed_input.subject == "file":
+    elif parsed_input.subject == "file": # Actions related to files (.csv) on your computer.
 
-        if parsed_input.verb == "upload":
+        if parsed_input.verb == "upload": # This is for loading a .csv file's path into the program's memory for further reference and actions.
 
             if not parsed_input.obj or parsed_input.obj[0] == "csv":
                 file_path_var = erql.upload_csv()
@@ -165,11 +165,11 @@ def enter(*args):
         elif parsed_input.verb == "show":
             pass
 
-        elif parsed_input.verb == "info":
+        elif parsed_input.verb == "info": # Prints information about loaded file.
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
 
-        elif parsed_input.verb == "anon":
+        elif parsed_input.verb == "anon": # For data complience reasons, you might want to randomize file names (for example if the files contain people's name or other forms of PII). When running file>anon>filepath, every file in a chose folder will get randomly generated names.
             from utils import file_anonymizer_standard
             file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
 
@@ -190,12 +190,12 @@ def enter(*args):
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
-    elif parsed_input.subject == "clear":
+    elif parsed_input.subject == "clear": # Clears out graph and text areas.
         text_box.delete("1.0", 'end')
         for widget in canvas1.winfo_children():
             widget.destroy()
     
-    elif parsed_input.subject == "graph":
+    elif parsed_input.subject == "graph": # For creating graphs and charts.
         for widget in canvas1.winfo_children():
             widget.destroy()
         if parsed_input.verb == "bar":
@@ -204,7 +204,7 @@ def enter(*args):
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
-        elif parsed_input.verb == "scatter":
+        elif parsed_input.verb == "scatter": # To create a scatter plot you run graph>file>x_axis>y_axis. Chose the X and Y axes using the information printed out in the text area when uploading a file using file>upload.
             df = pd.read_csv(selected_file.filepath)
             alpha_level = erql.set_alpha_level(df.shape[0])
             fig = Figure()
@@ -215,7 +215,7 @@ def enter(*args):
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
-        elif parsed_input.verb == "correlation":
+        elif parsed_input.verb == "correlation": 
             fig = Figure()
             ax = fig.add_subplot(111)
             x = parsed_input.obj[0]
@@ -227,7 +227,7 @@ def enter(*args):
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
-    elif parsed_input.subject == "copy":
+    elif parsed_input.subject == "copy": # Same as selecting all the text in the text area and hitting CTRL+C
         text_box.tag_add(tk.SEL, "1.0", tk.END)
         text_box.clipboard_clear()
         text_box.clipboard_append(text_box.get("1.0", tk.END))
@@ -255,7 +255,7 @@ def enter(*args):
                 with open(save_path, 'w') as f:
                     f.write(text_box.get("1.0", tk.END))
 
-    elif parsed_input.subject == "ilias":
+    elif parsed_input.subject == "ilias": # Actions related to the ILIAS LMS. 
         if parsed_input.verb == "login":
             global login
             login = erql.scrape_ilias(parsed_input.obj[0], parsed_input.obj[1])
