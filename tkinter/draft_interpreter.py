@@ -1,5 +1,5 @@
-import src
-import utils
+from src import erql
+from utils import help
 
 def interpret(user_input):
     match user_input:
