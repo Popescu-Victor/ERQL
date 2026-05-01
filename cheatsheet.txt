@@ -22,13 +22,9 @@ graph>correlation   # same as scatter but with trendline
 homework>convert # Takes in a .csv file (with scraped homework data) and returns code that can be pasted inside SCORM to create a table of students that have uncorrected projects and links that take to those, to make it easier for teachers to catch up with grading assignments.
 homework>scrape
 
-virtual_class>graph>teachers>pie_chart # Also works with "virtual class" and "virtualclass" as argments
-
-group>info
-group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)
-group>add_teacher>teacher(*Jane Doe*)>student(*Jacob Smith*)
-group>remove_students
-group>remove_teacher
+ilias>scrape
+ilias>convert
+ilias>vc
 
 stats>lin_reg
 stats>log_reg
