@@ -34,3 +34,4 @@ stats>lin_reg
 stats>log_reg
 stats>knn
 stats>anova
+stats>hist>X # Returns Histogram between X and every other valid column in the file

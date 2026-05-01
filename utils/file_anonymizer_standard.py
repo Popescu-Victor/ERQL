@@ -4,7 +4,7 @@ import string
 
 
 def file_anonymizer(folder):
-
+    swap_list = []
     def random_string(length=12):
         chars = string.ascii_letters + string.digits
         return ''.join(random.choices(chars, k=length))
@@ -21,3 +21,6 @@ def file_anonymizer(folder):
         
         os.rename(filepath, new_path)
         print(f"{filename} → {new_name}")
+        swap_list.append(f"{filename} → {new_name}")
+    
+    return swap_list

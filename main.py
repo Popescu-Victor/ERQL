@@ -171,7 +171,9 @@ def enter(*args):
 
         elif parsed_input.verb == "anon": # For data complience reasons, you might want to randomize file names (for example if the files contain people's name or other forms of PII). When running file>anon>filepath, every file in a chose folder will get randomly generated names.
             from utils import file_anonymizer_standard
-            file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
+            swaps = file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
+            result = ", ".join(swaps)
+            text_box.insert(tk.END, result)
 
 
 
