@@ -177,11 +177,12 @@ def enter(*args):
 
     elif parsed_input.subject == "groups":
         import sqlite3
-        conn = sqlite3.connect('groups.dp')
+        conn = sqlite3.connect('groups.db')
         cursor = conn.cursor()
+        cursor.execute('CREATE TABLE IF NOT EXISTS groups(teacher TEXT, student TEXT);')
         if parsed_input.verb:
-            teacher_student = [parsed_input.verb, parsed_input.subject]
-            cursor.executemany("INSERT INTO groups VALUES (?,?)", teacher_student)
+            teacher_student = [parsed_input.verb, parsed_input.obj[0]]
+            cursor.execute("INSERT INTO groups VALUES (?,?);", teacher_student)
             conn.commit()
             conn.close()
 
