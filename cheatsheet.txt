@@ -22,12 +22,21 @@ graph>correlation   # same as scatter but with trendline
 homework>convert # Takes in a .csv file (with scraped homework data) and returns code that can be pasted inside SCORM to create a table of students that have uncorrected projects and links that take to those, to make it easier for teachers to catch up with grading assignments.
 homework>scrape
 
-ilias>scrape
-ilias>convert
-ilias>vc
+virtual_class>graph>teachers>pie_chart # Also works with "virtual class" and "virtualclass" as argments
+
+group>info
+group>add_student>teacher(*Jane Doe*)>student(*Jacob Smith*)
+group>add_teacher>teacher(*Jane Doe*)>student(*Jacob Smith*)
+group>remove_students
+group>remove_teacher
 
 stats>lin_reg
 stats>log_reg
 stats>knn
 stats>anova
 stats>hist>X # Returns Histogram between X and every other valid column in the file
+stats>correlation>X # Returns regplot of X and every other numberical column in the file
+
+ilias> # Used for commands specific to the Ilias LMS
+ilias>login>X>Y # Storing login details in program memory to access scraping
+ilias>scrape>X # Scrapes every homework page linked on the 'X' page.
