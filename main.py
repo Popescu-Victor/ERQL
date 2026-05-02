@@ -59,6 +59,8 @@ def enter(*args):
     if parsed_input.subject == "help":
         if parsed_input.verb =="":
             text_box.insert(tk.END, help_text)
+        elif parsed_input.verb=="groups":
+            text_box.insert(tk.END, help.help_groups)
         elif parsed_input.verb == "file":
             text_box.insert(tk.END, help.help_file)
         elif parsed_input.verb == "graph":
