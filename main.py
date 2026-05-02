@@ -180,11 +180,15 @@ def enter(*args):
         conn = sqlite3.connect('groups.db')
         cursor = conn.cursor()
         cursor.execute('CREATE TABLE IF NOT EXISTS groups(teacher TEXT, student TEXT);')
-        if parsed_input.verb:
+        if parsed_input.verb and parsed_input.obj:
             teacher_student = [parsed_input.verb, parsed_input.obj[0]]
             cursor.execute("INSERT INTO groups VALUES (?,?);", teacher_student)
             conn.commit()
             conn.close()
+            text_insert = f'Added {parsed_input.obj[0]} as a student of {parsed_input.verb} \n'
+            text_box.insert(tk.END, text_insert)
+        else:
+            error.show_warning('args_number')
 
     elif parsed_input.subject == "virtual_class":
 
