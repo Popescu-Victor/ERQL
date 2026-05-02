@@ -175,7 +175,15 @@ def enter(*args):
             result = ", ".join(swaps)
             text_box.insert(tk.END, result)
 
-
+    elif parsed_input.subject == "groups":
+        import sqlite3
+        conn = sqlite3.connect('groups.dp')
+        cursor = conn.cursor()
+        if parsed_input.verb:
+            teacher_student = [parsed_input.verb, parsed_input.subject]
+            cursor.executemany("INSERT INTO groups VALUES (?,?)", teacher_student)
+            conn.commit()
+            conn.close()
 
     elif parsed_input.subject == "virtual_class":
 
