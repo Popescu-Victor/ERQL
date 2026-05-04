@@ -59,6 +59,8 @@ def enter(*args):
     if parsed_input.subject == "help":
         if parsed_input.verb =="":
             text_box.insert(tk.END, help_text)
+        elif parsed_input.verb=="groups":
+            text_box.insert(tk.END, help.help_groups)
         elif parsed_input.verb == "file":
             text_box.insert(tk.END, help.help_file)
         elif parsed_input.verb == "graph":
@@ -171,9 +173,24 @@ def enter(*args):
 
         elif parsed_input.verb == "anon": # For data complience reasons, you might want to randomize file names (for example if the files contain people's name or other forms of PII). When running file>anon>filepath, every file in a chose folder will get randomly generated names.
             from utils import file_anonymizer_standard
-            file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
+            swaps = file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
+            result = ", ".join(swaps)
+            text_box.insert(tk.END, result)
 
-
+    elif parsed_input.subject == "groups":
+        import sqlite3
+        conn = sqlite3.connect('groups.db')
+        cursor = conn.cursor()
+        cursor.execute('CREATE TABLE IF NOT EXISTS groups(teacher TEXT, student TEXT);')
+        if parsed_input.verb and parsed_input.obj:
+            teacher_student = [parsed_input.verb, parsed_input.obj[0]]
+            cursor.execute("INSERT INTO groups VALUES (?,?);", teacher_student)
+            conn.commit()
+            conn.close()
+            text_insert = f'Added {parsed_input.obj[0]} as a student of {parsed_input.verb} \n'
+            text_box.insert(tk.END, text_insert)
+        else:
+            error.show_warning('args_number')
 
     elif parsed_input.subject == "virtual_class":
 
