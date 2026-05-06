@@ -273,10 +273,9 @@ def enter(*args):
                     f.write(text_box.get("1.0", tk.END))
 
     elif parsed_input.subject == "ilias": # Actions related to the ILIAS LMS. 
+        from cloud.firebase.login_to_env import login_to_env
         if parsed_input.verb == "login":
-            global login
-            login = erql.scrape_ilias(parsed_input.obj[0], parsed_input.obj[1])
-            print(login)
+            login_to_env(parsed_input.obj[0], parsed_input.obj[1])
         elif parsed_input.verb == "scrape":    
             webdriver.hw_scrape(login[0], login[1])
 
