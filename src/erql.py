@@ -13,13 +13,6 @@ from src import errors_messagebox
 
 def stats_show():
     pass
-
-def k_means(k_num, dataframe):
-    df = dataframe
-    k = k_num
-    from sklearn.cluster import KMeans
-    kmeans = KMeans(n_clusters=k, random_state=0).fit(df)
-    df['Cluster'] = kmeans.labels_
     
 
 def virtual_analyse(): # This functions if for parsing the data from a Google form that we use.
