@@ -47,7 +47,8 @@ help_save = "After creating a graph or parsing through some data, you can save t
 help_stats = """Upload a file using 'file>upload' then perform statistical analysis on the entire file using one of the following:
 \n\n 1. 'hist' for histograms of all numerical columns in the file \n 2. 'correlation' and another column name for calculating the correlation between that column and all other numerical columns in the file. \n 3. 'heatmap' for a heatmap of the correlations between all numerical columns in the file. 
 """
-
+# help>groups
+help_groups = "To add a new student to his corresponding teacher, write groups>teacher>student."
 
 
 def stats_hist(file_path):

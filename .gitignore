@@ -1,10 +1,9 @@
 /target
 dist/
 build/
-/utils/sandbox.py
+utils/sandbox.py
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.db
-*.env
+groups.db

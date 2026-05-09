@@ -15,6 +15,7 @@ import pandas as pd
 import openpyxl
 import seaborn as sns
 from src import errors_messagebox as error
+from src import stats_functions as st
 from utils.help import help_text
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -81,7 +82,7 @@ def enter(*args):
 
         if parsed_input.verb == "kmeans":
             k = parsed_input.obj[0] if parsed_input.obj else 3
-            erql.k_means(k, df)
+            st.k_means(k, df)
 
         elif parsed_input.verb == "correlation":
             if not parsed_input.obj:
