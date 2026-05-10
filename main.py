@@ -182,16 +182,19 @@ def enter(*args):
     elif parsed_input.subject == "graph": # For creating graphs and charts.
         for widget in canvas1.winfo_children():
             widget.destroy()
+
         if parsed_input.verb == "bar":
-            barplot = sns.barplot(x=parsed_input.obj[1], y=parsed_input.obj[0], data=pd.read_csv(selected_file.filepath))
-            chart = FigureCanvasTkAgg(barplot.get_figure(), master=canvas1)
-            chart.draw()
-            chart.get_tk_widget().pack(fill="both", expand=True)
+            if not parsed_input.obj or len(parsed_input.obj) < 2 or not parsed_input.obj[1]:
+                error.show_warning('args_number')
+            else:
+                barplot = sns.barplot(x=parsed_input.obj[1], y=parsed_input.obj[0], data=pd.read_csv(selected_file.filepath))
+                chart = FigureCanvasTkAgg(barplot.get_figure(), master=canvas1)
+                chart.draw()
+                chart.get_tk_widget().pack(fill="both", expand=True)
 
         elif parsed_input.verb == "scatter": # To create a scatter plot you run graph>file>x_axis>y_axis. Chose the X and Y axes using the information printed out in the text area when uploading a file using file>upload.
-            from src import graph_functions as gr_fun
+            
             df = pd.read_csv(selected_file.filepath)
-            gr_fun.scatter(df=df, x_axis=parsed_input.obj[0], y_axis=parsed_input.obj[1])
             alpha_level = erql.set_alpha_level(df.shape[0])
             fig = Figure()
             ax = fig.add_subplot(111)
