@@ -182,39 +182,42 @@ def enter(*args):
     elif parsed_input.subject == "graph": # For creating graphs and charts.
         for widget in canvas1.winfo_children():
             widget.destroy()
-
-        if parsed_input.verb == "bar":
-            if not parsed_input.obj or len(parsed_input.obj) < 2 or not parsed_input.obj[1]:
+        if not parsed_input.obj or len(parsed_input.obj) < 2 or not parsed_input.obj[1]:
                 error.show_warning('args_number')
-            else:
-                barplot = sns.barplot(x=parsed_input.obj[1], y=parsed_input.obj[0], data=pd.read_csv(selected_file.filepath))
-                chart = FigureCanvasTkAgg(barplot.get_figure(), master=canvas1)
+        else:
+
+            if parsed_input.verb == "bar":
+                if not parsed_input.obj or len(parsed_input.obj) < 2 or not parsed_input.obj[1]:
+                    error.show_warning('args_number')
+                else:
+                    barplot = sns.barplot(x=parsed_input.obj[1], y=parsed_input.obj[0], data=pd.read_csv(selected_file.filepath))
+                    chart = FigureCanvasTkAgg(barplot.get_figure(), master=canvas1)
+                    chart.draw()
+                    chart.get_tk_widget().pack(fill="both", expand=True)
+
+            elif parsed_input.verb == "scatter": # To create a scatter plot you run graph>file>x_axis>y_axis. Chose the X and Y axes using the information printed out in the text area when uploading a file using file>upload.
+                
+                df = pd.read_csv(selected_file.filepath)
+                alpha_level = erql.set_alpha_level(df.shape[0])
+                fig = Figure()
+                ax = fig.add_subplot(111)
+                sns.scatterplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=df, ax=ax, alpha=alpha_level)
+                plt.show()
+                chart = FigureCanvasTkAgg(fig, master=canvas1)
                 chart.draw()
                 chart.get_tk_widget().pack(fill="both", expand=True)
 
-        elif parsed_input.verb == "scatter": # To create a scatter plot you run graph>file>x_axis>y_axis. Chose the X and Y axes using the information printed out in the text area when uploading a file using file>upload.
-            
-            df = pd.read_csv(selected_file.filepath)
-            alpha_level = erql.set_alpha_level(df.shape[0])
-            fig = Figure()
-            ax = fig.add_subplot(111)
-            sns.scatterplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=df, ax=ax, alpha=alpha_level)
-            plt.show()
-            chart = FigureCanvasTkAgg(fig, master=canvas1)
-            chart.draw()
-            chart.get_tk_widget().pack(fill="both", expand=True)
-
-        elif parsed_input.verb == "correlation": 
-            fig = Figure()
-            ax = fig.add_subplot(111)
-            x = parsed_input.obj[0]
-            y = parsed_input.obj[1]
-            df = pd.read_csv(selected_file.filepath)
-            print(df.shape[0])
-            erql.correlation(df[x], df[y], ax, df.shape[0])
-            chart = FigureCanvasTkAgg(fig, master=canvas1)
-            chart.draw()
-            chart.get_tk_widget().pack(fill="both", expand=True)
+            elif parsed_input.verb == "correlation": 
+                fig = Figure()
+                ax = fig.add_subplot(111)
+                x = parsed_input.obj[0]
+                y = parsed_input.obj[1]
+                df = pd.read_csv(selected_file.filepath)
+                print(df.shape[0])
+                erql.correlation(df[x], df[y], ax, df.shape[0])
+                chart = FigureCanvasTkAgg(fig, master=canvas1)
+                chart.draw()
+                chart.get_tk_widget().pack(fill="both", expand=True)
 
     elif parsed_input.subject == "copy": # Same as selecting all the text in the text area and hitting CTRL+C
         text_box.tag_add(tk.SEL, "1.0", tk.END)
