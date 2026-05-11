@@ -10,9 +10,6 @@ application = ApplicationBuilder().token(TOKEN).build()
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text("Welcome to ERQL!")
 
-async def first_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text("This is the first message!")
-
 def handle_response(text: str) -> str:
     text = text.lower()
     rendered = text.split("$")
