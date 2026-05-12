@@ -43,8 +43,8 @@ root.rowconfigure(1, weight=0)
 text_box = scrolledtext.ScrolledText(root,width=30,height=20,highlightthickness=2, highlightbackground="gray",wrap=tk.WORD)
 text_box.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
-canvas1 = tk.Frame(root,bg = "lightgray")
-canvas1.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+graph_area_canvas = tk.Frame(root,bg = "lightgray")
+graph_area_canvas.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 
 text_box2 = entry = tk.Entry(root, font=("Consolas", 16))
 text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
@@ -52,7 +52,7 @@ text_box2.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 # This text gets pasted when the program starts so that first time users have some guidance on how to use the program. It also serves as a welcome message for returning users.
 text_box.insert(tk.END, "Welcome to ERQL! If this is your first time using this app, write 'help>' in the field at the bottom left corner of the window.\n\n")
 
-def enter(*args):
+def press_enter(*args):
     global selected_file 
     global fig
     user_input = entry.get()
@@ -76,7 +76,7 @@ def enter(*args):
             text_box.insert(tk.END, help.help_save)
     
     elif parsed_input.subject == "stats": # Statistical analysis, usually done on multiple columns at once or even to the entire dataset where possible.
-        for widget in canvas1.winfo_children():
+        for widget in graph_area_canvas.winfo_children():
             widget.destroy()
         df = pd.read_csv(selected_file.filepath)
 
@@ -91,14 +91,14 @@ def enter(*args):
             else:
                 fig_ax = st.correlation(df=df, target_col=parsed_input.obj[0])
                 fig = fig_ax[0]
-                chart = FigureCanvasTkAgg(fig, master=canvas1)
+                chart = FigureCanvasTkAgg(fig, master=graph_area_canvas)
                 chart.draw()
                 chart.get_tk_widget().pack(fill="both", expand=True)
 
         elif parsed_input.verb == "hist": # Histogram, shows distribution of data in all numberical columns of the dataset.
             fig_ax = st.hist(df)
             fig = fig_ax[0]
-            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart = FigureCanvasTkAgg(fig, master=graph_area_canvas)
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
@@ -170,17 +170,17 @@ def enter(*args):
             fig = Figure()
             ax = fig.add_subplot(111)
             sns.barplot(x="Total", y="Nume Tutore", data=df, ax=ax)
-            chart = FigureCanvasTkAgg(fig, master=canvas1)
+            chart = FigureCanvasTkAgg(fig, master=graph_area_canvas)
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
     elif parsed_input.subject == "clear": # Clears out graph and text areas.
         text_box.delete("1.0", 'end')
-        for widget in canvas1.winfo_children():
+        for widget in graph_area_canvas.winfo_children():
             widget.destroy()
     
     elif parsed_input.subject == "graph": # For creating graphs and charts.
-        for widget in canvas1.winfo_children():
+        for widget in graph_area_canvas.winfo_children():
             widget.destroy()
         if not parsed_input.obj or len(parsed_input.obj) < 2 or not parsed_input.obj[1]:
                 error.show_warning('args_number')
@@ -191,7 +191,7 @@ def enter(*args):
                     error.show_warning('args_number')
                 else:
                     barplot = sns.barplot(x=parsed_input.obj[1], y=parsed_input.obj[0], data=pd.read_csv(selected_file.filepath))
-                    chart = FigureCanvasTkAgg(barplot.get_figure(), master=canvas1)
+                    chart = FigureCanvasTkAgg(barplot.get_figure(), master=graph_area_canvas)
                     chart.draw()
                     chart.get_tk_widget().pack(fill="both", expand=True)
 
@@ -203,7 +203,7 @@ def enter(*args):
                 ax = fig.add_subplot(111)
                 sns.scatterplot(x=parsed_input.obj[0], y=parsed_input.obj[1], data=df, ax=ax, alpha=alpha_level)
                 plt.show()
-                chart = FigureCanvasTkAgg(fig, master=canvas1)
+                chart = FigureCanvasTkAgg(fig, master=graph_area_canvas)
                 chart.draw()
                 chart.get_tk_widget().pack(fill="both", expand=True)
 
@@ -215,7 +215,7 @@ def enter(*args):
                 df = pd.read_csv(selected_file.filepath)
                 print(df.shape[0])
                 erql.correlation(df[x], df[y], ax, df.shape[0])
-                chart = FigureCanvasTkAgg(fig, master=canvas1)
+                chart = FigureCanvasTkAgg(fig, master=graph_area_canvas)
                 chart.draw()
                 chart.get_tk_widget().pack(fill="both", expand=True)
 
@@ -254,7 +254,7 @@ def enter(*args):
         elif parsed_input.verb == "scrape":    
             webdriver.hw_scrape(login[0], login[1])
 
-entry.bind('<Return>', enter)
+entry.bind('<Return>', press_enter)
 
 btn = tk.Button(root, text="ENTER")
 btn.grid(row=1, column=1, sticky="nsew", padx=10, pady=10)
