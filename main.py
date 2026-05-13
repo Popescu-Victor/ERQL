@@ -248,11 +248,12 @@ def press_enter(*args):
                     f.write(text_box.get("1.0", tk.END))
 
     elif parsed_input.subject == "ilias": # Actions related to the ILIAS LMS. 
-        from cloud.firebase.login_to_env import login_to_env
-        if parsed_input.verb == "login":
-            login_to_env(parsed_input.obj[0], parsed_input.obj[1])
-        elif parsed_input.verb == "scrape":    
-            webdriver.hw_scrape(login[0], login[1])
+
+        if parsed_input.verb == "scrape":    
+            hw_list = webdriver.hw_scrape(parsed_input.obj[0], parsed_input.obj[1])
+            text_box.insert(tk.END, "Here are the homework links I found: \n")
+            for hw in hw_list:
+                text_box.insert(tk.END, hw + "\n")
 
 entry.bind('<Return>', press_enter)
 

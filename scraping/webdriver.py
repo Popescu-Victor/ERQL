@@ -44,8 +44,15 @@ def hw_scrape(username, password):
     if link.get_attribute("href")
 ]
     print("Extracted URLs:")
+
+    manual_scoring_list = []
+
     for url in urls:
-        print(url)  
+        if "showManScoring" in url:
+            print(url)
+            manual_scoring_list.append(url)
+
+    return manual_scoring_list
 
     driver.quit()
 
@@ -55,6 +62,3 @@ def get_login_info():
     username_input = input("Write your username: ")
     password_input = input("Write your password: ")
     return username_input, password_input
-
-user_data = get_login_info()
-hw_scrape(user_data[0], user_data[1])
