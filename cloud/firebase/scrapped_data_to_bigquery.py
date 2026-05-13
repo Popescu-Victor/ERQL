@@ -1,8 +1,11 @@
 from google.cloud import bigquery
 import pandas as pd
 import json
+import dotenv
+from scraping import webdriver
 
-
+link_list = webdriver.hw_scrape("username", "password")
+clean_link_list = webdriver.check_homework(link_list)
 
 def json_to_bigquery(json_file_path, project_id, dataset_id, table_id):
 
