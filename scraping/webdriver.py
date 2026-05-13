@@ -2,10 +2,25 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+import dotenv
+import os
+
+
+def load_env_variables():
+
+    dotenv.load_dotenv()
+    LOGIN_URL = os.getenv("LOGIN_URL")
+    HW_PAGE = os.getenv("HW_PAGE")
+
+    return LOGIN_URL, HW_PAGE
+
 
 def hw_scrape(username, password):
+    load_env_variables()
+    LOGIN_URL, HW_PAGE = load_env_variables()
+
     driver = webdriver.Edge() 
-    driver.get("https://roarmy.adlunap.ro")
+    driver.get(LOGIN_URL)
     time.sleep(2)
  
     username_field = driver.find_element(By.ID, "username")
@@ -17,7 +32,24 @@ def hw_scrape(username, password):
     
     time.sleep(5)
     print("Logged in (hopefully)")
+
+    driver.get(HW_PAGE)
+    time.sleep(5)
+
+    print("Navigated to HW page")
+
+    urls = [
+    link.get_attribute("href")
+    for link in driver.find_elements(By.TAG_NAME, "a")
+    if link.get_attribute("href")
+]
+    print("Extracted URLs:")
+    for url in urls:
+        print(url)  
+
     driver.quit()
+
+
 
 def get_login_info():
     username_input = input("Write your username: ")
