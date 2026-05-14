@@ -56,7 +56,10 @@ def hw_scrape(username, password):
 
     driver.quit()
 
-
+def check_homework(manual_scoring_list):
+    for url in manual_scoring_list:
+        driver.get(url)
+        time.sleep(5)
 
 def get_login_info():
     username_input = input("Write your username: ")
