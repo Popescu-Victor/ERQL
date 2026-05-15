@@ -1,6 +1,6 @@
 from google.cloud import firestore
 
-
+# This code uploads a single entry to Firestore. It creates a document with the specified data and automatically adds a timestamp.
 
 db = firestore.Client(project="project-xxxxxxxx")
 collection_name = "ERQL_Single"
@@ -22,6 +22,5 @@ ULTRA CONCISE VERSION:
 
 database = firestore.Client(project="XYZ")
 collection = db.collection("XYZ")
-
 collection.document("XYZ").set({XYZ})
 '''

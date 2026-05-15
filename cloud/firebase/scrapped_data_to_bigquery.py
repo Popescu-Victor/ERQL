@@ -4,6 +4,8 @@ import json
 import dotenv
 from scraping import webdriver
 
+# This code scrapes homework data from the LMS we use, cleans it, and uploads it to BigQuery. It uses a function to convert JSON data into a DataFrame and then loads it into a specified BigQuery table.
+
 link_list = webdriver.hw_scrape("username", "password")
 clean_link_list = webdriver.check_homework(link_list)
 

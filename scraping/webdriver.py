@@ -5,9 +5,10 @@ import time
 import dotenv
 import os
 
+# required to run the webdriver, make sure to have the appropriate driver installed and added to your PATH. This code logs into the LMS, navigates to the homework page where all the writing exercises are listed for convenience, extracts the URLs, and returns a list of URLs. 
+# The ILIAS platform does not have any API, therefore I use Selenium + Edge driver
 
 def load_env_variables():
-
     dotenv.load_dotenv()
     LOGIN_URL = os.getenv("LOGIN_URL")
     HW_PAGE = os.getenv("HW_PAGE")

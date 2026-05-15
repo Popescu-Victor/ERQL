@@ -3,6 +3,9 @@ from src import erql
 import pandas as pd
 from src import errors_messagebox as error
 
+
+# Not yet in use. I'll slowly move the code form main.py here.
+
 def command_handler(Parsed_input):
     if Parsed_input.subject == "standard":
         if Parsed_input.verb == "graph":

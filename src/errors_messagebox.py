@@ -1,5 +1,8 @@
 from tkinter import messagebox
 
+# For displaying error messages to users.
+
+
 WARNINGS = {
     "args_number":      ("Error: args_number",    "Your input has the wrong number of arguments."),
     
