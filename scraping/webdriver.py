@@ -49,7 +49,7 @@ def hw_scrape(username, password):
     manual_scoring_list = []
 
     for url in urls:
-        if "showManScoring" in url:
+        if "showManScoring" in url: # 'showManScoring' is the part of the URL that identifies the writing exercises, so I use it as a filter to only get the relevant URLs.
             print(url)
             manual_scoring_list.append(url)
 
