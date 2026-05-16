@@ -3,6 +3,9 @@ import dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 
+# Testing out Telegram bot.
+
+
 TOKEN: Final = dotenv.get_key(dotenv.find_dotenv(), "TOKEN")
 
 application = ApplicationBuilder().token(TOKEN).build()

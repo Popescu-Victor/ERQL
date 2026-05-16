@@ -1,6 +1,8 @@
 from src import erql
 from utils import help
 
+# Compared if-statement to match-case statements.
+
 def interpret(user_input):
     match user_input:
         case "stats":

@@ -11,8 +11,8 @@ import plotly.figure_factory as ff
 from src import login_details
 from src import errors_messagebox
 
-def stats_show():
-    pass
+
+# Main place for storing functions used in other code blocks.
     
 
 def virtual_analyse(): # This functions if for parsing the data from a Google form that we use.
