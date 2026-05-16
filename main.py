@@ -138,6 +138,8 @@ def press_enter(*args):
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
 
+
+        # For anonymizing the files in a folder you need to write file>anon>[folder path]
         elif parsed_input.verb == "anon": # For data complience reasons, you might want to randomize file names (for example if the files contain people's name or other forms of PII). When running file>anon>filepath, every file in a chose folder will get randomly generated names.
             from utils import file_anonymizer_standard
             swaps = file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])

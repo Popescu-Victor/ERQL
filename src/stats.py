@@ -1,6 +1,11 @@
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
+from src import interpreter
+
 # Moved functions related to more complex statistical analysis into a different file.
 
-def correlation():
+def correlation(df, parsed_input):
             target_col = parsed_input.obj[0]
             other_cols = [col for col in df.select_dtypes(include='number').columns if col != target_col]
 
@@ -23,7 +28,7 @@ def correlation():
             chart.draw()
             chart.get_tk_widget().pack(fill="both", expand=True)
 
-def hist():
+def hist(df):
             num_cols = df.select_dtypes(include='number').columns
             n = len(num_cols)
             ncols = 3

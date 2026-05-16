@@ -25,7 +25,7 @@ def virtual_analyse(): # This functions if for parsing the data from a Google fo
     df = df.replace("Nu", 0)
     df = df.replace("Da", 2)
     df = df.replace("Partial", 1)
-    scor_deprinderi = [1, 0.5, 1, 0.5, 2, 2, 1, 0.5, 1, 0.5]
+    scor_deprinderi = [1, 0.5, 1, 0.5, 2, 2, 1, 0.5, 1, 0.5] # There's 10 points that teachers are evaluated on in the form, but they're not all worth the same. This list takes the weight of each point towards the final score into account
     df["Total"] = df.iloc[:, 1:11].mul(scor_deprinderi).sum(axis=1)
     avg_table = (df.groupby(df.columns[0], as_index=False)["Total"].mean())
     avg_table["Total"] = avg_table["Total"] * 5
@@ -99,7 +99,7 @@ def heatmap(df, ax):
     return plot
 
 
-def set_alpha_level(rows):
+def set_alpha_level(rows): # Used in multiple functions like scatterplots and correlation graphics. The purpose of this is to make correlation more visible when there's lots of rows of data by making individual points in the graph more transparent.
     if rows <= 10:
         return 1
     elif rows <= 30:
