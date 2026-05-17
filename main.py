@@ -119,9 +119,15 @@ def press_enter(*args):
                 text_box.insert(tk.END, file_info_text)
                 selected_file = fim.Filepath(file_path_var)
 
-
             elif parsed_input.obj[0] == "excel":
                 error.show_warning("invalid_excel")
+
+
+        elif parsed_input.verb == "column":
+                selected_file = pd.read_csv(selected_file.filepath)
+                values = erql.show_column_data(selected_file, parsed_input.obj[0])
+                text_box.insert(tk.END, values)
+
 
         elif parsed_input.verb == "convert":
             if len(parsed_input.obj) >= 2 and parsed_input.obj[0] == "excel" and parsed_input.obj[1] == "csv":

@@ -114,3 +114,7 @@ def set_alpha_level(rows): # Used in multiple functions like scatterplots and co
 def scrape_ilias(username, password):
     login = login_details.Username_Password(username, password)
     return login.input_as_list
+
+def show_column_data(df, column):
+    col_data = df[column]
+    return col_data
