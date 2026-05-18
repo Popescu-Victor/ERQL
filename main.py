@@ -58,6 +58,8 @@ def press_enter(*args):
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
     if parsed_input.subject == "help":
+        # The help command is for providing guidance on how to use the program. If the user writes "help>" they get a general help text, but if they write "help>file" for example, they get help related to file commands.
+    
         if parsed_input.verb =="":
             text_box.insert(tk.END, help_text)
         elif parsed_input.verb=="groups":
@@ -81,7 +83,7 @@ def press_enter(*args):
         df = pd.read_csv(selected_file.filepath)
 
         if parsed_input.verb == "kmeans":
-            k = parsed_input.obj[0] if parsed_input.obj else 3
+            k = parsed_input.obj[0] if parsed_input.obj else 3 # Default to 3 clusters if not specified
             st.k_means(k, df)
 
         elif parsed_input.verb == "correlation":
@@ -119,15 +121,9 @@ def press_enter(*args):
                 text_box.insert(tk.END, file_info_text)
                 selected_file = fim.Filepath(file_path_var)
 
+
             elif parsed_input.obj[0] == "excel":
-                error.show_warning("invalid_excel")
-
-
-        elif parsed_input.verb == "column":
-                selected_file = pd.read_csv(selected_file.filepath)
-                values = erql.show_column_data(selected_file, parsed_input.obj[0])
-                text_box.insert(tk.END, values)
-
+                error.show_warning("invalid_excel") # Haven't yet implemented excel access.
 
         elif parsed_input.verb == "convert":
             if len(parsed_input.obj) >= 2 and parsed_input.obj[0] == "excel" and parsed_input.obj[1] == "csv":
@@ -144,15 +140,13 @@ def press_enter(*args):
             csv_info = erql.file_info()
             text_box.insert(tk.END, csv_info)
 
-
-        # For anonymizing the files in a folder you need to write file>anon>[folder path]
         elif parsed_input.verb == "anon": # For data complience reasons, you might want to randomize file names (for example if the files contain people's name or other forms of PII). When running file>anon>filepath, every file in a chose folder will get randomly generated names.
             from utils import file_anonymizer_standard
             swaps = file_anonymizer_standard.file_anonymizer(parsed_input.obj[0])
             result = ", ".join(swaps)
             text_box.insert(tk.END, result)
 
-    elif parsed_input.subject == "groups":
+    elif parsed_input.subject == "groups": # Related to grouping students under teachers or tutors for organizational purposes. You can also print out information about the groups you have created and the students in them.
         import sqlite3
         conn = sqlite3.connect('groups.db')
         cursor = conn.cursor()
@@ -167,7 +161,7 @@ def press_enter(*args):
         else:
             error.show_warning('args_number')
 
-    elif parsed_input.subject == "virtual_class":
+    elif parsed_input.subject == "virtual_class": # Also related to specific kinds of graphs and analyses that are relevant for teachers and tutors
 
         if parsed_input.verb == "info":
             df = erql.virtual_analyse()
@@ -232,11 +226,15 @@ def press_enter(*args):
         text_box.clipboard_clear()
         text_box.clipboard_append(text_box.get("1.0", tk.END))
 
+    elif parsed_input.subject == "cloud":
+        from tkinter import filedialog # For security reasons, the program doesn't ask you to write the credentials for your cloud services in the command line, but instead opens a file explorer window where you can select the credentials file from your computer. This way, the credentials don't get stored in the program's memory or in the command history.
+        cred_file = filedialog.askopenfilename(title="Select a file", filetypes=(("JSON files", "*.json"), ("All files", "*.*")))
+        print(cred_file)
 
 # Saving graphs as image files and text as .txt files is also possible through the program. The user can choose where to save the file and what name to give it.
 
     elif parsed_input.subject == "save":
-        if parsed_input.verb == "graph":
+        if parsed_input.verb == "graph": # After creating a graph inside the ERQL program, you can save it as an image file on your computer by running save>graph. You can choose where to save it and what name to give it.
             save_path = filedialog.asksaveasfilename(
             defaultextension=".png",
             filetypes=[("PNG files", "*.png"), ("JPEG files", "*.jpg"), ("All files", "*.*")],
@@ -245,7 +243,7 @@ def press_enter(*args):
             if save_path:
                 fig.savefig(save_path)
 
-        if parsed_input.verb == "text":
+        if parsed_input.verb == "text": # Saving the text from the textbox on the right.
             save_path = filedialog.asksaveasfilename(
             defaultextension=".txt",
             filetypes=[("Text files", "*.txt"), ("All files", "*.*")],
