@@ -234,7 +234,8 @@ def press_enter(*args):
     elif parsed_input.subject == "telegram":
         from telegram_bot import telegram_bot
         if parsed_input.verb == "start":
-            telegram_bot.start_telegram_bot()
+            user_message = telegram_bot.start_telegram_bot()
+            text_box.insert(tk.END, user_message)
 
 
 

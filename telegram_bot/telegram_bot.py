@@ -23,11 +23,11 @@ def start_telegram_bot():
         message_text = update.message.text 
         handle_response(message_text)        
         
-    if __name__ == "__main__":
-        app = Application.builder().token(TOKEN).build()
 
-        app.add_handler(CommandHandler("start", start))
-        app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    app = Application.builder().token(TOKEN).build()
 
-        print("Bot is running...")
-        app.run_polling()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
+    print("Bot is running...")
+    app.run_polling()
