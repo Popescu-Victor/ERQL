@@ -231,6 +231,15 @@ def press_enter(*args):
         cred_file = filedialog.askopenfilename(title="Select a file", filetypes=(("JSON files", "*.json"), ("All files", "*.*")))
         print(cred_file)
 
+    elif parsed_input.subject == "telegram":
+        from telegram_bot import telegram_bot
+        if parsed_input.verb == "start":
+            telegram_bot.start_telegram_bot()
+
+
+
+
+
 # Saving graphs as image files and text as .txt files is also possible through the program. The user can choose where to save the file and what name to give it.
 
     elif parsed_input.subject == "save":
