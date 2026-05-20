@@ -244,6 +244,7 @@ def press_enter(*args):
 # Saving graphs as image files and text as .txt files is also possible through the program. The user can choose where to save the file and what name to give it.
 
     elif parsed_input.subject == "save":
+        from tkinter import filedialog
         if parsed_input.verb == "graph": # After creating a graph inside the ERQL program, you can save it as an image file on your computer by running save>graph. You can choose where to save it and what name to give it.
             save_path = filedialog.asksaveasfilename(
             defaultextension=".png",
