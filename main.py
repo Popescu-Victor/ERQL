@@ -272,6 +272,11 @@ def press_enter(*args):
             for hw in hw_list:
                 text_box.insert(tk.END, hw + "\n")
 
+        elif parsed_input.verb == "convert":
+            from src import ilias_convert
+            converted = ilias_convert.convert_csv_to_ilias_format(selected_file.filepath)
+            text_box.insert(tk.END, converted)
+
 entry.bind('<Return>', press_enter)
 
 btn = tk.Button(root, text="ENTER")
