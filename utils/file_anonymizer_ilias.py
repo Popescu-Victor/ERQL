@@ -1,4 +1,6 @@
 import os
+# As standalone script for file>anon.
+
 
 folder = r"" #folder path
 

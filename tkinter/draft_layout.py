@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import scrolledtext
 
+# Tkinter layout configuration for further reference.
+
+
 root = tk.Tk()
 root.title("Layout Example")
 root.geometry("600x400")

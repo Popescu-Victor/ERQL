@@ -53,6 +53,8 @@ def hist(df):
             text = help.stats_hist(selected_file.filepath)
             text_box.insert(tk.END, text)
 
+# Functions to be added later on below:
+
 def knn():
   pass
 

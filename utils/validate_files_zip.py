@@ -7,7 +7,7 @@ def validate_files(filepath):
     with zipfile.ZipFile(filepath, "r") as z:
         files = z.namelist()
         for i, filename in enumerate(files, start=1):
-            if '-ro-' not in filename:
+            if '-ro-' not in filename: # The web extension we use for scraping renders csv files as [site link] + [date]. Therefore splitting the file names at 'ro' (from the .ro extension) makes the most sense
                 pass
             else:
                 ext = filename.split('-ro-')[1]
