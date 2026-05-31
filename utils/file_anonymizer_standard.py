@@ -1,3 +1,5 @@
+# Taking in a folder path and giving every file inside a random name.
+
 import os
 import random
 import string
