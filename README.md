@@ -1,15 +1,15 @@
 # ERQL
 📚 ERQL (Education, Reporting & Query Language)
-🧠 Overview
 
 <img src="https://github.com/Popescu-Victor/ERQL/blob/main/logo.png?raw=true" alt="GUI">
-<p align="center">_Logo made by Bobes Bogdan_</p>
+<p align="center"> _Logo made by Bobes Bogdan_ </p>
 
 
 
 **ERQL** (Education, Reporting & Query Language) is a lightweight tool designed to make educational reporting and data analysis fast, simple, and accessible.
 <img src="https://github.com/Popescu-Victor/ERQL/blob/main/example.PNG?raw=true" alt="GUI">
 It introduces a human-readable query language that allows users to generate reports, analyze data, and manipulate files with minimal friction — even on restricted or low-performance systems.
+
 🎯 Motivation
 
 Working as an LMS administrator in a constrained environment highlighted two major challenges: 
@@ -46,7 +46,9 @@ ERQL aims to solve both problems by being:
 
     Tkinter (GUI interface)
 
-    Other libraries: Pandas, Numpy, Scipy, Scikit-Learn, Matplotlib, Seaborn, Selenium
+    Other libraries: Pandas, Numpy, Scipy, Scikit-Learn, Matplotlib, Seaborn
+    
+    Google Firestore (for storing and accessing data across multiple devices)
 
 
 🚧 Project Status
