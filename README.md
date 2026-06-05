@@ -5,8 +5,8 @@
 <p align="center"> _Logo made by Bobes Bogdan_ </p>
 
 
+ERQL (Education, Reporting & Query Language) was initially designed as a lightweight tool to make educational reporting and data analysis fast, simple, and accessible to non-technical personnel working in the education sector. Since then, its scope has expanded beyond educational contexts to support personal productivity tracking and self-analysis. By enabling users to capture, query, and report on their daily activities, goals, and performance metrics, ERQL now provides a flexible framework for identifying patterns, measuring progress, and generating actionable insights that help individuals make more informed decisions about how they spend their time and improve their overall productivity.
 
-**ERQL** (Education, Reporting & Query Language) is a lightweight tool designed to make educational reporting and data analysis fast, simple, and accessible.
 <img src="https://github.com/Popescu-Victor/ERQL/blob/main/example.PNG?raw=true" alt="GUI">
 It introduces a human-readable query language that allows users to generate reports, analyze data, and manipulate files with minimal friction — even on restricted or low-performance systems.
 
