@@ -31,3 +31,4 @@ def start_telegram_bot():
 
     print("Bot is running...")
     app.run_polling()
+    return handle_response()

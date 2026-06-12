@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from src import erql
 
+
+# Functions related to advanced statistical analysis.
+
 def k_means(k_num, dataframe):
     df = dataframe
     k = k_num

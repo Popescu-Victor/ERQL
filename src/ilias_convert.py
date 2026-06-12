@@ -1,6 +1,9 @@
 import pandas as pd
 from collections import defaultdict
 
+# Converting raw csv files into a format that can be easily copy-pasted into ILIAS, which is the LMS we use. This is for the homework data, which is scraped from the LMS and then converted into a format that can be easily copy-pasted back into the LMS, so that teachers don't have to do it manually. The function takes a file path as input and returns a string that can be copy-pasted into ILIAS. The string contains the student username, the number of uncorrected homework, and the links to the uncorrected homework.
+
+
 def convert_csv_to_ilias_format(filepath):
 
     df = pd.read_csv(filepath)
