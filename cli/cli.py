@@ -3,12 +3,20 @@
 
 import argparse
 import sys
-from src import *
-from utils import *
 
-def interpret():
+
+def parse_ui():
     user_input = input("Write your ERQL script here: ")
     commands = user_input.split(">")
-    print(f"Commands: {commands}")
+    return commands
 
-interpret()
+command_list = parse_ui()
+
+def interpret(commands):
+    if commands[0] == "file":
+        if commands[1] == "upload":
+            from tkinter import filedialog
+            file = filedialog.askopenfilename(title="Select a file to upload")
+            print(f"File uploaded: {file}")
+
+interpret(command_list)
