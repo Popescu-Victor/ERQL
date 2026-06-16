@@ -3,7 +3,8 @@
 
 import argparse
 import sys
-
+from src import *
+from utils import *
 
 def interpret():
     user_input = input("Write your ERQL script here: ")
