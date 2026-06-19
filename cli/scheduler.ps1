@@ -4,4 +4,6 @@ $action = New-ScheduledTaskAction `
     -WorkingDirectory "C:\Users\popescu.victor\Desktop\github\ERQL\cli"
 
 
-Register-ScheduledTask -TaskName "DailyScraper" -Action $action
+$trigger = New-ScheduledTaskTrigger -Daily -At 8am
+
+Register-ScheduledTask -TaskName "DailyScraper" -Action $action -Trigger $trigger
