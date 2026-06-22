@@ -27,6 +27,15 @@ def interpret(command):
             if file_path[-4:] == '.csv':
                 file_in_memory.Filepath(file_path)
                 print(f"File selected: {file_path}")
+                check_c = input("Check content? Y/N: ")
+                if check_c.upper() == 'Y':
+                    import pandas as pd
+                    df = pd.read_csv(file_path)
+                    print("*" * 100)
+                    print(df.head())
+                    print("*" * 100)
+                else:
+                    pass
             else:
                 print("No file selected or wrong file format. Please upload a valid .csv file")
 
