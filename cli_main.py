@@ -31,7 +31,7 @@ def interpret(command):
                 if check_c.upper() == 'Y':
                     import pandas as pd
                     df = pd.read_csv(file_path)
-                    print("*" * 100)
+                    print("*" * 100) # For creating a delimitation between table head and other outputs in the terminal.
                     print(df.head())
                     print("*" * 100)
                 else:
