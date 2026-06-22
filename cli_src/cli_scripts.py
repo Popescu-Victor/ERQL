@@ -6,11 +6,10 @@ def ask_input():
     return input(">  ")
 
 def interpret_input(user_input):
-    try:
-        return user_input.split(">")
-    except:
+    if not isinstance(user_input, str) or ">" not in user_input:
         print("Invalid input format.")
         return None
+    return user_input.split(">")
 
 def main():
     while True:
@@ -19,6 +18,7 @@ def main():
             print("Exiting the program.")
             sys.exit(0)
         else:
-            interpret_input(user_input)
+            split_commands = interpret_input(user_input)
+            print(split_commands)
 
 main()
