@@ -8,4 +8,14 @@ def main(col_no: int):
     created_df = pd.DataFrame(columns=col_names)
     print(created_df)
 
-main(3)
+def add_data(df):
+    new_row = []
+    for i in df.shape[1]:
+        input_data = input(">>> ")
+        new_row.append(input_data)
+    df = pd.concat([df, new_row], ignore_index=True)
+
+
+how_many_col = input("How many columns? ")
+dataframe1 = main(how_many_col)
+add_data(dataframe1)
