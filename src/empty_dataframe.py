@@ -15,11 +15,15 @@ def add_data(df):
     new_row = []
     for i in range(df.shape[1]):
         input_data = input(">>> ")
-        input_data_series = pd.Series(input_data)
-        new_row.append(input_data_series)
-    df = pd.concat([df, new_row], ignore_index=True)
+        new_row.append(input_data)
+    input_data_series = pd.Series(new_row)
+    new_df = pd.concat([df, input_data_series], ignore_index=True)
+    return new_df
 
 
 how_many_col = input("How many columns? ")
 dataframe1 = main(how_many_col)
 add_data(dataframe1)
+
+
+print(dataframe1.head())
