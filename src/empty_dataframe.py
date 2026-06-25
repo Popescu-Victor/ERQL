@@ -3,16 +3,20 @@ import pandas as pd
 
 def main(col_no: int):
     col_names = []
-    for i in range(col_no):
+    for i in range(int(col_no)):
         col_names.append(input(">>  "))
     created_df = pd.DataFrame(columns=col_names)
     print(created_df)
+    return created_df
+
+
 
 def add_data(df):
     new_row = []
-    for i in df.shape[1]:
+    for i in range(df.shape[1]):
         input_data = input(">>> ")
-        new_row.append(input_data)
+        input_data_series = pd.Series(input_data)
+        new_row.append(input_data_series)
     df = pd.concat([df, new_row], ignore_index=True)
 
 
