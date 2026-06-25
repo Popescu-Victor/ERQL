@@ -1,7 +1,7 @@
 import argparse
 import sys
 import time
-from cli import *
+from cli_src import *
 from src import file_in_memory
 
 # In $PROFILE, add the following line to make the script available in PowerShell:
@@ -20,7 +20,7 @@ command = main()
 
 def interpret(command):
     if command[0] == 'file':
-        if command[1] == 'upload':
+        if command[1] == 'upload' or command[1] == 'select':
             from tkinter import filedialog
             from tkinter import Tk
             file_path = filedialog.askopenfilename()
