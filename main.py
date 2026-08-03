@@ -23,7 +23,6 @@ import matplotlib.pyplot as plt
 from src import file_in_memory as fim
 from utils import help
 import math
-from scraping import webdriver
 
 root = tk.Tk()
 # This is the main file of the program, where the GUI is created and the user input is processed.
@@ -57,6 +56,8 @@ def press_enter(*args):
     global fig
     user_input = entry.get()
     parsed_input = interpreter.Parsed_input(user_input)
+
+
     if parsed_input.subject == "help":
         # The help command is for providing guidance on how to use the program. If the user writes "help>" they get a general help text, but if they write "help>file" for example, they get help related to file commands.
     
@@ -76,10 +77,13 @@ def press_enter(*args):
             text_box.insert(tk.END, help.help_stats)
         elif parsed_input.verb == "save":
             text_box.insert(tk.END, help.help_save)
+
     
     elif parsed_input.subject == "stats": # Statistical analysis, usually done on multiple columns at once or even to the entire dataset where possible.
         for widget in graph_area_canvas.winfo_children():
-            widget.destroy()
+            widget.destroy() # Removing previous graph to aviod overlapping.
+
+
         df = pd.read_csv(selected_file.filepath)
 
         if parsed_input.verb == "kmeans":
@@ -132,9 +136,6 @@ def press_enter(*args):
             
             else:
                 error.show_warning("missing_feature")
-
-        elif parsed_input.verb == "show":
-            pass
 
         elif parsed_input.verb == "info": # Prints information about loaded file.
             csv_info = erql.file_info()
