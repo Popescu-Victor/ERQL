@@ -4,6 +4,9 @@ import time
 from cli_src import *
 from src import file_in_memory
 
+
+# To use this script, run it from the command line with the desired command as an argument. For example:
+#   python cli_main.py file-upload
 # In $PROFILE, add the following line to make the script available in PowerShell:
 #   function erql {python "[path_to_script]" @args}
 
